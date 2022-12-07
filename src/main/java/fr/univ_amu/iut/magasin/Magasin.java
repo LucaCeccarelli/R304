@@ -1,10 +1,9 @@
 package fr.univ_amu.iut.magasin;
 
-import fr.univ_amu.iut.RandomFunct;
+import fr.univ_amu.iut.outils.Paquet;
+import fr.univ_amu.iut.outils.FonctionAleatoire;
 import fr.univ_amu.iut.entites.Entite;
 import java.util.ArrayList;
-import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class Magasin{
 
@@ -12,6 +11,7 @@ public class Magasin{
         private ArrayList<Entite> listeRare = new ArrayList<Entite>();
         private ArrayList<Entite> listeLegendaire = new ArrayList<Entite>();
         private ArrayList<Entite> magasin = new ArrayList<Entite>(5);
+
 
 
         public ArrayList<Entite> getListeCommun(){
@@ -30,13 +30,13 @@ public class Magasin{
                 return magasin;
         }
 
-        public Entite achat(String nomEntite){
+        public Entite achat(String nomEntite) throws NomEntiteNonPresentDansMagasinException {
                 for (Entite entite : magasin) {
                         if(entite.getNom().equals(nomEntite)){
                                 return entite;
                         }
                 }
-                throw new IllegalArgumentException("nomEntite non present dans le magasin");
+                throw new NomEntiteNonPresentDansMagasinException("nomEntite non present dans le magasin");
         }
 
 
@@ -46,15 +46,15 @@ public class Magasin{
                 int nbrAlea;
                 int i = 0;
                 while(i<5){
-                        nbrAlea = RandomFunct.random.nextInt(0,101);
+                        nbrAlea = FonctionAleatoire.random.nextInt(0,101);
                         if(nbrAlea<20 && listeLegendaire.isEmpty() == false){
-                                magasin.add(listeLegendaire.get(RandomFunct.random.nextInt(0,listeLegendaire.size())));
+                                magasin.add(listeLegendaire.get(FonctionAleatoire.random.nextInt(0,listeLegendaire.size())));
                                 ++i;
                         } else if (nbrAlea<50 && listeRare.isEmpty() == false) {
-                                magasin.add(listeRare.get(RandomFunct.random.nextInt(0,listeRare.size())));
+                                magasin.add(listeRare.get(FonctionAleatoire.random.nextInt(0,listeRare.size())));
                                 ++i;
                         } else if (listeCommun.isEmpty() == false){
-                                magasin.add(listeCommun.get(RandomFunct.random.nextInt(0,listeCommun.size())));
+                                magasin.add(listeCommun.get(FonctionAleatoire.random.nextInt(0,listeCommun.size())));
                                 ++i;
                         }
                 }

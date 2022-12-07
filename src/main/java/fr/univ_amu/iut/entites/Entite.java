@@ -1,7 +1,7 @@
 package fr.univ_amu.iut.entites;
 
-import fr.univ_amu.iut.RandomFunct;
-import fr.univ_amu.iut.magasin.Paquet;
+import fr.univ_amu.iut.outils.FonctionAleatoire;
+import fr.univ_amu.iut.outils.Paquet;
 
 public abstract class Entite {
 
@@ -85,10 +85,10 @@ public abstract class Entite {
     public void attaquer(Entite adversaire) {
         int attaque;
         if (this.getPointsAttaque() > adversaire.getPointsDefense()) {
-            attaque = (int) ((this.getPointsAttaque() * RandomFunct.random.nextDouble(0.3, 0.5)) - (adversaire.getPointsDefense()*RandomFunct.random.nextDouble(0.1, 0.5)));
+            attaque = (int) ((this.getPointsAttaque() * FonctionAleatoire.random.nextDouble(0.3, 0.5)) - (adversaire.getPointsDefense()* FonctionAleatoire.random.nextDouble(0.1, 0.5)));
 
         } else {
-            attaque = (int) (((adversaire.getPointsDefense()*RandomFunct.random.nextDouble(0.1, 0.5)-this.getPointsAttaque() * RandomFunct.random.nextDouble(0.3, 0.5))));
+            attaque = (int) (((adversaire.getPointsDefense()* FonctionAleatoire.random.nextDouble(0.1, 0.5)-this.getPointsAttaque() * FonctionAleatoire.random.nextDouble(0.3, 0.5))));
         }
         System.out.println(attaque);
         if(adversaire.getPointsVie()-attaque < 0) {

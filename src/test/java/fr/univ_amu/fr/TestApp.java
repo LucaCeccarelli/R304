@@ -1,10 +1,10 @@
 package fr.univ_amu.fr;
 
-import fr.univ_amu.iut.Joueur;
-import fr.univ_amu.iut.RandomFunct;
+import fr.univ_amu.iut.joueur.Joueur;
+import fr.univ_amu.iut.outils.FonctionAleatoire;
 import fr.univ_amu.iut.entites.*;
 import fr.univ_amu.iut.magasin.Magasin;
-import fr.univ_amu.iut.magasin.Paquet;
+import fr.univ_amu.iut.outils.Paquet;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -113,7 +113,7 @@ public class TestApp {
 
     @Test
     public void testMagasin(){
-        RandomFunct.random.setSeed(1);
+        FonctionAleatoire.random.setSeed(1);
         Assassin a1 = new Assassin("Michou", 2, 10, 30, Rarete.COMMUN);
         Mage a2 = new Mage("Michel", 2, 50, 30, Rarete.RARE);
         Assassin a3 = new Assassin("Simon", 2, 100, 30, Rarete.LEGENDAIRE);
@@ -129,7 +129,7 @@ public class TestApp {
 
     @Test
     public void testAchat(){
-        RandomFunct.random.setSeed(1);
+        FonctionAleatoire.random.setSeed(1);
         Assassin a1 = new Assassin("Michou", 2, 10, 30, Rarete.COMMUN);
         Mage a2 = new Mage("Michel", 2, 50, 30, Rarete.RARE);
         Assassin a3 = new Assassin("Simon", 2, 100, 30, Rarete.LEGENDAIRE);
