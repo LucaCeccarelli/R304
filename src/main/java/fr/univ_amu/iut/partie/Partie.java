@@ -1,5 +1,4 @@
-
-package fr.univ_amu.iut.outils;
+package fr.univ_amu.iut.partie;
 
 import fr.univ_amu.iut.joueur.Joueur;
 import fr.univ_amu.iut.magasin.Magasin;
@@ -7,18 +6,8 @@ import fr.univ_amu.iut.magasin.NomEntiteNonPresentDansMagasinException;
 
 import java.util.Scanner;
 
-
-public class Jouer implements Runnable{
-
-    private Joueur joueur1;
-    private Joueur joueur2;
-
-    public Jouer (Joueur joueur1, Joueur joueur2){
-        this.joueur1 =  joueur1;
-        this.joueur2 = joueur2;
-    }
-
-    public void partieAchat(Joueur j){
+public class Partie {
+    public static void phaseAchat(Joueur j){
         Magasin magasin = new Magasin();
         magasin.trieRarete();
 
@@ -41,7 +30,7 @@ public class Jouer implements Runnable{
         }
     }
 
-    public Joueur partieCombat(){
+    public static Joueur phaseCombat(Joueur joueur1,Joueur joueur2){
         int tour = 0;
         boolean fin = true;
         Scanner scanner = new Scanner(System.in);
@@ -52,19 +41,9 @@ public class Jouer implements Runnable{
             System.out.println("Choisir un champion");
             String champion = scanner.nextLine();
 
-
+            //TODO : Comment gagner
         }
-        return gagnant;
+        return joueur1;
     }
 
-    @Override
-    public void run() {
-        System.out.println("--- La partie va commencer ---");
-        System.out.println(joueur1.getNom()+" va au magasin ");
-        partieAchat(joueur1);
-        System.out.println(joueur2.getNom()+" va au magasin ");
-        partieAchat(joueur2);
-
-        System.out.println("Prearez-vous au combat");
-    }
 }
