@@ -1,15 +1,41 @@
 package fr.univ_amu.iut.entites;
 
+import fr.univ_amu.iut.Observateur.Observable;
+import fr.univ_amu.iut.Observateur.Observer;
 import fr.univ_amu.iut.outils.FonctionAleatoire;
 import fr.univ_amu.iut.outils.Paquet;
 
-public abstract class Entite {
+import java.util.ArrayList;
+
+public abstract class Entite implements Observable {
 
     private Rarete rarete;
     private String nom;
     private int pointsAttaque ;
     private int pointsDefense;
     private int pointsVie;
+
+    /*
+    fonction pour l'Observateur
+     */
+    private ArrayList<Observer> observers = new ArrayList<Observer>();
+
+    @Override
+    public void addObservale(Observer obj) {
+        observers.add(obj);
+    }
+
+    @Override
+    public void removeObserver(Observer obj) {
+        observers.remove(obj);
+    }
+
+    @Override
+    public void notifyObserver() {
+        for (Observer obj : observers) {
+            obj.update(this);
+        }
+    }
 
     public Entite(String nom, int pointsAttaque, int pointsVie, int pointsDefense, Rarete rarete){
         this.setPointsAttaque(pointsAttaque);
@@ -65,6 +91,7 @@ public abstract class Entite {
     public void setPointsVie(int pointsVie) {
         if (pointsVie >= 0 && pointsVie <= 100) {
             this.pointsVie = pointsVie;
+            notifyObserver();
         } else {
             throw new IllegalArgumentException("Points de vie non valides (1-100)");
         }
