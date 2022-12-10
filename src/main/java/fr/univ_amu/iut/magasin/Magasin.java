@@ -6,6 +6,9 @@ import fr.univ_amu.iut.entites.Entite;
 import java.util.ArrayList;
 
 public class Magasin{
+        public Magasin(){
+                ApprovisionnementMagasin.trieRarete();
+        }
         private ArrayList<Entite> magasin = new ArrayList<Entite>(5);
 
         public ArrayList<Entite> getMagasin() {

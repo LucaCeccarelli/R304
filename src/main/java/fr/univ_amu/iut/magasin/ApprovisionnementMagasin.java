@@ -23,7 +23,6 @@ public class ApprovisionnementMagasin {
     }
 
     protected static ArrayList<Entite> raffrechirEntitesDansMagasin(){
-        trieRarete();
         ArrayList<Entite> magasin = new ArrayList<>(5);
 
         int nbrAlea;
@@ -44,7 +43,7 @@ public class ApprovisionnementMagasin {
         return listeEntite.get(FonctionAleatoire.random.nextInt(0,listeEntite.size()));
     }
 
-    private static void trieRarete(){
+    protected static void trieRarete(){
         for (Entite entite: Paquet.liste) {
             switch (entite.getRarete()){
                 case RARE -> listeRare.add(entite);
