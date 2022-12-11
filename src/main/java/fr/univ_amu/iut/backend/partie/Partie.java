@@ -1,9 +1,9 @@
 package fr.univ_amu.iut.backend.partie;
 
-import fr.univ_amu.iut.entites.backend.Entite;
-import fr.univ_amu.iut.joueur.backend.Joueur;
-import fr.univ_amu.iut.magasin.backend.Magasin;
-import fr.univ_amu.iut.magasin.backend.NomEntiteNonPresentDansMagasinException;
+import fr.univ_amu.iut.backend.entites.Entite;
+import fr.univ_amu.iut.backend.joueur.Joueur;
+import fr.univ_amu.iut.backend.magasin.Magasin;
+import fr.univ_amu.iut.backend.magasin.NomEntiteNonPresentDansMagasinException;
 
 import java.util.Scanner;
 
