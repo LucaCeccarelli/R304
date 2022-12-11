@@ -1,7 +1,7 @@
 package fr.univ_amu.iut.interface_application.fenetres.connexion;
 
-import fr.univ_amu.iut.backend.multijoueur.serveur.Serveur;
-import fr.univ_amu.iut.interface_application.fenetres.magasin.FenetreMagasin;
+import fr.univ_amu.iut.backend.outils.multijoueur.serveur.Serveur;
+import fr.univ_amu.iut.backend.outils.multijoueur.serveur.NotifierConnexion;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -26,14 +26,21 @@ public class Heberger extends BorderPane {
                 //Stuff
                 Heberger.super.setCenter(texteDeAttente);
                 Serveur serveur = new Serveur(10013);
+                Thread receive = new Thread(new Runnable() {
+                    String msg;
 
-                try {
-                    serveur.launch();
-                    Heberger.super.getScene().setRoot(new FenetreMagasin());
-                } catch (IOException ex) {
-                    throw new RuntimeException(ex);
-                }
-
+                    @Override
+                    public void run() {
+                        try {
+                            serveur.launch();
+                        } catch (IOException ex) {
+                            throw new RuntimeException(ex);
+                        }
+                    }
+                });
+                NotifierConnexion notifierConnexion = new NotifierConnexion(Heberger.super.getScene(),receive);
+                serveur.addObserver(notifierConnexion);
+                receive.start();
             }
         });
     }

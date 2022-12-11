@@ -1,6 +1,7 @@
 package fr.univ_amu.iut.backend.magasin;
 
 import fr.univ_amu.iut.backend.entites.Entite;
+import fr.univ_amu.iut.backend.outils.Paquet;
 
 import java.util.ArrayList;
 
@@ -8,7 +9,7 @@ public class Magasin{
         public Magasin(){
                 ApprovisionnementMagasin.trieRarete();
         }
-        private ArrayList<Entite> magasin = new ArrayList<Entite>(5);
+        private Paquet magasin = new Paquet(5);
 
         public ArrayList<Entite> getMagasin() {
                 return magasin;

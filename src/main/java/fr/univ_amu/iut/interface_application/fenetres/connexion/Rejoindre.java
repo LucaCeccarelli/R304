@@ -1,7 +1,6 @@
 package fr.univ_amu.iut.interface_application.fenetres.connexion;
 
-import fr.univ_amu.iut.backend.multijoueur.client.Client;
-import fr.univ_amu.iut.backend.multijoueur.serveur.Serveur;
+import fr.univ_amu.iut.backend.outils.multijoueur.client.Client;
 import fr.univ_amu.iut.interface_application.fenetres.magasin.FenetreMagasin;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

@@ -4,26 +4,29 @@ import fr.univ_amu.iut.backend.entites.Entite;
 import fr.univ_amu.iut.backend.outils.FonctionAleatoire;
 import fr.univ_amu.iut.backend.outils.Paquet;
 
-import java.util.ArrayList;
-
 public class ApprovisionnementMagasin {
-    private static ArrayList<Entite> listeCommun = new ArrayList<Entite>();
-    private static ArrayList<Entite> listeRare = new ArrayList<Entite>();
-    private static ArrayList<Entite> listeLegendaire = new ArrayList<Entite>();
-    protected ArrayList<Entite> getListeCommun(){
+    private static Paquet listeChampionsExistants = new Paquet();
+    private static Paquet listeCommun = new Paquet();
+    private static Paquet listeRare = new Paquet();
+    private static Paquet listeLegendaire = new Paquet();
+
+    protected static void ajouterALaListeDesChampionsExistants(Entite entite){
+        listeChampionsExistants.add(entite);
+    }
+    protected Paquet getListeCommun(){
         return listeCommun;
     }
 
-    protected ArrayList<Entite> getListeRare(){
+    protected Paquet getListeRare(){
         return listeRare;
     }
 
-    protected ArrayList<Entite> getListeLegendaire(){
+    protected Paquet getListeLegendaire(){
         return listeLegendaire;
     }
 
-    protected static ArrayList<Entite> raffrechirEntitesDansMagasin(){
-        ArrayList<Entite> magasin = new ArrayList<>(5);
+    protected static Paquet raffrechirEntitesDansMagasin(){
+        Paquet magasin = new Paquet(5);
 
         int nbrAlea;
         while(magasin.size()<5){
@@ -39,12 +42,12 @@ public class ApprovisionnementMagasin {
         return magasin;
     }
 
-    private static Entite choisisEntiteAleatoirementParmisListe(ArrayList<Entite> listeEntite){
+    private static Entite choisisEntiteAleatoirementParmisListe(Paquet listeEntite){
         return listeEntite.get(FonctionAleatoire.random.nextInt(0,listeEntite.size()));
     }
 
     protected static void trieRarete(){
-        for (Entite entite: Paquet.liste) {
+        for (Entite entite: listeChampionsExistants) {
             switch (entite.getRarete()){
                 case RARE -> listeRare.add(entite);
                 case COMMUN -> listeCommun.add(entite);

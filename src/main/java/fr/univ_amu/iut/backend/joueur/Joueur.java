@@ -1,16 +1,16 @@
 package fr.univ_amu.iut.backend.joueur;
 
 import fr.univ_amu.iut.backend.entites.Entite;
+import fr.univ_amu.iut.backend.outils.Paquet;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Joueur {
-    private ArrayList<Entite> paquet;
+    private Paquet paquet;
     private String nom;
 
     public Joueur(String nom){
-        this.paquet = new ArrayList<Entite>();
+        this.paquet = new Paquet();
         this.nom = nom;
     }
     public void ajouterAuPaquet(Entite entite){
@@ -28,7 +28,7 @@ public class Joueur {
         return contenu;
     }
 
-    public ArrayList<Entite> getPaquet() {
+    public Paquet getPaquet() {
         return paquet;
     }
 
@@ -41,12 +41,12 @@ public class Joueur {
         return null;
     }
 
-    public void setPaquet(ArrayList<Entite> paquet) {
+    public void setPaquet(Paquet paquet) {
         this.paquet = paquet;
     }
 
 /**
-    public ArrayList<Entite> championEnVie(){
+    public Paquet2 championEnVie(){
         for (Entite e: paquet) {
 
         }

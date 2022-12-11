@@ -5,7 +5,6 @@ import fr.univ_amu.iut.backend.joueur.Joueur;
 import fr.univ_amu.iut.backend.outils.FonctionAleatoire;
 import fr.univ_amu.iut.entites.*;
 import fr.univ_amu.iut.backend.magasin.Magasin;
-import fr.univ_amu.iut.backend.outils.Paquet;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

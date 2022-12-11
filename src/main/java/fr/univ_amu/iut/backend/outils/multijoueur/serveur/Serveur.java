@@ -1,11 +1,37 @@
-package fr.univ_amu.iut.backend.multijoueur.serveur;
+package fr.univ_amu.iut.backend.outils.multijoueur.serveur;
+
+import fr.univ_amu.iut.backend.outils.observateur.Observable;
+import fr.univ_amu.iut.backend.outils.observateur.Observer;
 
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
 
-public class Serveur {
+public class Serveur implements Observable {
     private int port;
+
+    /*
+    fonction pour l'Observateur
+     */
+    private ArrayList<Observer> observers = new ArrayList<Observer>();
+
+    @Override
+    public void addObserver(Observer obj) {
+        observers.add(obj);
+    }
+
+    @Override
+    public void removeObserver(Observer obj) {
+        observers.remove(obj);
+    }
+
+    @Override
+    public void notifyObserver() {
+        for (Observer obj : observers) {
+            obj.update(this);
+        }
+    }
 
     /**
      * Constructor for the server hosting the linux console used to play the games
@@ -34,6 +60,7 @@ public class Serveur {
 
 
                         Socket client = server.accept();
+                        notifyObserver();
 
                         BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
                         BufferedWriter out = new BufferedWriter(new OutputStreamWriter(client.getOutputStream()));
