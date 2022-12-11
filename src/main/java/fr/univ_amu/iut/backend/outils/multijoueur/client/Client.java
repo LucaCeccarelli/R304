@@ -1,4 +1,4 @@
-package fr.univ_amu.iut.backend.multijoueur.client;
+package fr.univ_amu.iut.backend.outils.multijoueur.client;
 
 import java.io.*;
 import java.net.Socket;

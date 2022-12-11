@@ -1,18 +1,14 @@
 package fr.univ_amu.iut.interface_application.fenetres.magasin;
 
-import fr.univ_amu.iut.backend.entites.Entite;
 import fr.univ_amu.iut.backend.joueur.Joueur;
+import fr.univ_amu.iut.backend.magasin.InitListeChampionsExistants;
 import fr.univ_amu.iut.backend.magasin.Magasin;
-import fr.univ_amu.iut.backend.multijoueur.serveur.Serveur;
-import fr.univ_amu.iut.interface_application.fenetres.connexion.Heberger;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class FenetreMagasin extends BorderPane {
@@ -24,6 +20,8 @@ public class FenetreMagasin extends BorderPane {
     public FenetreMagasin(){
         super();
         joueur = new Joueur("Moi");
+
+        InitListeChampionsExistants.InitListe();
 
         magasin = new Magasin();
         initBoutonsChampions();
