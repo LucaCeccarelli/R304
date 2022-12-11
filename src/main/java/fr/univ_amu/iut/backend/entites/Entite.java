@@ -14,6 +14,7 @@ public abstract class Entite implements Observable {
     private int pointsAttaque ;
     private int pointsDefense;
     private int pointsVie;
+    private String type;
 
     /*
     fonction pour l'Observateur
@@ -127,5 +128,5 @@ public abstract class Entite implements Observable {
     }
 
     public abstract void competence();
-
+    public abstract String getType();
 }
