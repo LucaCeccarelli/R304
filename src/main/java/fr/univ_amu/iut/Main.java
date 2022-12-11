@@ -1,8 +1,8 @@
 package fr.univ_amu.iut;
 
-import fr.univ_amu.iut.entites.Assassin;
-import fr.univ_amu.iut.entites.Entite;
-import fr.univ_amu.iut.entites.Rarete;
+import fr.univ_amu.iut.backend.entites.Assassin;
+import fr.univ_amu.iut.backend.entites.Entite;
+import fr.univ_amu.iut.backend.entites.Rarete;
 import java.util.ArrayList;
 
 public class Main {
