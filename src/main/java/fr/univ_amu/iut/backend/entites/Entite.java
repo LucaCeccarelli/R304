@@ -1,7 +1,7 @@
 package fr.univ_amu.iut.backend.entites;
 
-import fr.univ_amu.iut.backend.Observateur.Observable;
-import fr.univ_amu.iut.backend.Observateur.Observer;
+import fr.univ_amu.iut.backend.outils.observateur.Observable;
+import fr.univ_amu.iut.backend.outils.observateur.Observer;
 import fr.univ_amu.iut.backend.outils.FonctionAleatoire;
 import fr.univ_amu.iut.backend.outils.Paquet;
 
