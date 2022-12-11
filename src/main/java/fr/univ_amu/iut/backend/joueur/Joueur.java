@@ -4,10 +4,9 @@ import fr.univ_amu.iut.backend.entites.Entite;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 
 public class Joueur {
-    private List<Entite> paquet;
+    private ArrayList<Entite> paquet;
     private String nom;
 
     public Joueur(String nom){
@@ -28,11 +27,30 @@ public class Joueur {
         }
         return contenu;
     }
+
+    public ArrayList<Entite> getPaquet() {
+        return paquet;
+    }
+
+    public Entite entiteQuiALeNom(String nom) {
+        for (Entite e: paquet) {
+            if(e.getNom().equals(nom)){
+                return e;
+            }
+        }
+        return null;
+    }
+
+    public void setPaquet(ArrayList<Entite> paquet) {
+        this.paquet = paquet;
+    }
+
 /**
     public ArrayList<Entite> championEnVie(){
         for (Entite e: paquet) {
 
         }
+        return null;
     }
 **/
     public String getNom() {

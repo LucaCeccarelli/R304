@@ -112,19 +112,25 @@ public abstract class Entite implements Observable {
 
     public void attaquer(Entite adversaire) {
         int attaque;
-        if (this.getPointsAttaque() > adversaire.getPointsDefense()) {
-            attaque = (int) ((this.getPointsAttaque() * FonctionAleatoire.random.nextDouble(0.3, 0.5)) - (adversaire.getPointsDefense()* FonctionAleatoire.random.nextDouble(0.1, 0.5)));
-
-        } else {
-            attaque = (int) (((adversaire.getPointsDefense()* FonctionAleatoire.random.nextDouble(0.1, 0.5)-this.getPointsAttaque() * FonctionAleatoire.random.nextDouble(0.3, 0.5))));
-        }
+        System.out.println(this.getNom() + " attaque " + adversaire.getNom() + "!");
+        attaque = (int) (this.pointsAttaque*(1.01-(adversaire.getPointsDefense()/100)));
         System.out.println(attaque);
-        if(adversaire.getPointsVie()-attaque < 0) {
+        attaque = (int) (attaque*FonctionAleatoire.random.nextDouble(0.5, 1));
+        if (attaque >= 30) {
+            System.out.println("Coup critique");
+        } else if (attaque < 30 && attaque >= 10){
+            System.out.println("Coup moyen");
+        } else {
+            System.out.println("Coup faible");
+        }
+        if (adversaire.getPointsVie() <= attaque){
+            System.out.println(adversaire.getNom() + " a péris");
             adversaire.setPointsVie(0);
         } else {
-            adversaire.setPointsVie(getPointsVie()-attaque);
+            adversaire.setPointsVie(adversaire.getPointsVie()-attaque);
         }
-        System.out.println(this.getNom() + " attaque !");
+        System.out.println("L'attaque a engendré une perte de " + attaque + " PV");
+        System.out.println("L'entitée attaquée a : " + adversaire.getPointsVie() + " points de vie");
     }
 
     public abstract void competence();
