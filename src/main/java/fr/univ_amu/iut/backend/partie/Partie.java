@@ -1,12 +1,10 @@
 package fr.univ_amu.iut.backend.partie;
 
-import fr.univ_amu.iut.entites.Entite;
-import fr.univ_amu.iut.joueur.Joueur;
-import fr.univ_amu.iut.magasin.Magasin;
-import fr.univ_amu.iut.magasin.NomEntiteNonPresentDansMagasinException;
+import fr.univ_amu.iut.entites.backend.Entite;
+import fr.univ_amu.iut.joueur.backend.Joueur;
+import fr.univ_amu.iut.magasin.backend.Magasin;
+import fr.univ_amu.iut.magasin.backend.NomEntiteNonPresentDansMagasinException;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Scanner;
 
 public class Partie {
