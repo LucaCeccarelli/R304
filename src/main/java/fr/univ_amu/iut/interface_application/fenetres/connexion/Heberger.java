@@ -1,6 +1,7 @@
-package fr.univ_amu.iut.interface_application.fenetres;
+package fr.univ_amu.iut.interface_application.fenetres.connexion;
 
 import fr.univ_amu.iut.backend.multijoueur.serveur.Serveur;
+import fr.univ_amu.iut.interface_application.fenetres.magasin.FenetreMagasin;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -28,6 +29,7 @@ public class Heberger extends BorderPane {
 
                 try {
                     serveur.launch();
+                    Heberger.super.getScene().setRoot(new FenetreMagasin());
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }

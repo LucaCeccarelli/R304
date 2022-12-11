@@ -1,7 +1,8 @@
-package fr.univ_amu.iut.interface_application.fenetres;
+package fr.univ_amu.iut.interface_application.fenetres.connexion;
 
 import fr.univ_amu.iut.backend.multijoueur.client.Client;
 import fr.univ_amu.iut.backend.multijoueur.serveur.Serveur;
+import fr.univ_amu.iut.interface_application.fenetres.magasin.FenetreMagasin;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -32,6 +33,7 @@ public class Rejoindre extends BorderPane {
 
                 try {
                     client.connect();
+                    Rejoindre.super.getScene().setRoot(new FenetreMagasin());
                 } catch (IOException ex) {
                     entreeDeTexte.setText("Une erreur c'est produite, essayez à un nouveau");
                     //throw new RuntimeException(ex);

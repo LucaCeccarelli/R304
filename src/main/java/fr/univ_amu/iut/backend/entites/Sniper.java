@@ -19,4 +19,9 @@ public class Sniper extends Entite {
                 + ", pointsVie=" + getPointsVie()
                 + "}";
     }
+
+    @Override
+    public String getType(){
+        return "Sniper";
+    }
 }

@@ -19,4 +19,8 @@ public class Assassin extends Entite {
                 + ", pointsVie=" + getPointsVie()
                 + "}";
     }
+    @Override
+    public String getType(){
+     return "Assasin";
+    }
 }

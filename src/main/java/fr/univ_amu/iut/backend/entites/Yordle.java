@@ -19,4 +19,9 @@ public class Yordle extends Entite {
                 + ", pointsVie=" + getPointsVie()
                 + "}";
     }
+
+    @Override
+    public String getType(){
+        return "Yordle";
+    }
 }

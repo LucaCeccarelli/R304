@@ -20,4 +20,8 @@ public class Mage extends Entite {
                 + "}";
     }
 
+    @Override
+    public String getType(){
+        return "Mage";
+    }
 }
