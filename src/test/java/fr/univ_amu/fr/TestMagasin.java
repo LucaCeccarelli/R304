@@ -1,9 +1,10 @@
 package fr.univ_amu.fr;
 
-import fr.univ_amu.iut.outils.FonctionAleatoire;
+import fr.univ_amu.iut.backend.entites.*;
+import fr.univ_amu.iut.backend.outils.FonctionAleatoire;
 import fr.univ_amu.iut.entites.*;
-import fr.univ_amu.iut.magasin.Magasin;
-import fr.univ_amu.iut.outils.Paquet;
+import fr.univ_amu.iut.backend.magasin.Magasin;
+import fr.univ_amu.iut.backend.outils.Paquet;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
