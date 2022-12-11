@@ -7,7 +7,7 @@ import fr.univ_amu.iut.backend.outils.Paquet;
 
 import java.util.ArrayList;
 
-public abstract class Entite implements Observable {
+public abstract class Entite{
 
     private Rarete rarete;
     private String nom;
@@ -15,28 +15,6 @@ public abstract class Entite implements Observable {
     private int pointsDefense;
     private int pointsVie;
     private String type;
-
-    /*
-    fonction pour l'Observateur
-     */
-    private ArrayList<Observer> observers = new ArrayList<Observer>();
-
-    @Override
-    public void addObservale(Observer obj) {
-        observers.add(obj);
-    }
-
-    @Override
-    public void removeObserver(Observer obj) {
-        observers.remove(obj);
-    }
-
-    @Override
-    public void notifyObserver() {
-        for (Observer obj : observers) {
-            obj.update(this);
-        }
-    }
 
     public Entite(String nom, int pointsAttaque, int pointsVie, int pointsDefense, Rarete rarete){
         this.setPointsAttaque(pointsAttaque);
@@ -92,7 +70,6 @@ public abstract class Entite implements Observable {
     public void setPointsVie(int pointsVie) {
         if (pointsVie >= 0 && pointsVie <= 100) {
             this.pointsVie = pointsVie;
-            notifyObserver();
         } else {
             throw new IllegalArgumentException("Points de vie non valides (1-100)");
         }
