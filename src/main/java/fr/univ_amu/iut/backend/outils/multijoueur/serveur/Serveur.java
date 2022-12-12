@@ -1,5 +1,6 @@
 package fr.univ_amu.iut.backend.outils.multijoueur.serveur;
 
+import fr.univ_amu.iut.backend.outils.multijoueur.SocketEchange;
 import fr.univ_amu.iut.backend.outils.observateur.Observable;
 import fr.univ_amu.iut.backend.outils.observateur.Observer;
 
@@ -8,8 +9,8 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 
-public class Serveur implements Observable {
-    private int port;
+public class Serveur extends SocketEchange implements Observable {
+    private ServerSocket server;
 
     /*
     fonction pour l'Observateur
@@ -32,70 +33,20 @@ public class Serveur implements Observable {
             obj.update(this);
         }
     }
+    // fin observer
 
-    /**
-     * Constructor for the server hosting the linux console used to play the games
-     *
-     * @param port
-     */
     public Serveur(int port) {
-        this.port = port;
+        super(port);
     }
 
-    /**
-     * Method used to launch the server
-     *
-     * @throws IOException
-     */
-    public void launch() throws IOException {
-            Thread receive = new Thread(new Runnable() {
-                String msg;
-
-                @Override
-                public void run() {
-                    try {
-                        ServerSocket server = new ServerSocket(port);
-
-                        System.out.println("Bash server launched on port : " + port);
-
-
-                        Socket client = server.accept();
-                        notifyObserver();
-
-                        BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
-                        BufferedWriter out = new BufferedWriter(new OutputStreamWriter(client.getOutputStream()));
-
-                        while ((msg = in.readLine()) != null) {
-                            try {
-                                Process process = Runtime.getRuntime().exec(msg);
-
-                                BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-                                String line = "";
-
-                                while ((line = reader.readLine()) != null) {
-                                    out.write(line);
-                                    out.newLine();
-                                    out.flush();
-                                    System.out.println(line);
-                                }
-                            }catch (IOException | NullPointerException | IllegalArgumentException e) {
-                                out.write("Command does not exist");
-                                out.newLine();
-                                out.flush();
-                            }
-                        }
-                        //Exit if the user disconnects
-                        System.out.println("Client disconnected");
-                        //Close the flux if the user disconnects
-                        out.close();
-                        client.close();
-                        server.close();
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    }
-                }
-            });
-            receive.start();
+    @Override
+    public void connexion() throws IOException {
+            server = new ServerSocket(super.port);
+            System.out.println("Serveur de jeu lancé sur le port : " + port);
+            Socket client = server.accept();
+            notifyObserver();
+            oout = new ObjectOutputStream(client.getOutputStream());
+            oin = new ObjectInputStream(client.getInputStream());
 
     }
 }

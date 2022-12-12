@@ -15,6 +15,7 @@ public class Rejoindre extends BorderPane {
     private TextField entreeDeTexte = new TextField();
     private Label texteDeExplication = new Label("Entrez l'adresse de l'hebergeur");
     private Button rejoindre = new Button("Rejoindre");
+    private static Client client;
     public Rejoindre(){
         super();
         super.setTop(texteDeExplication);
@@ -31,7 +32,7 @@ public class Rejoindre extends BorderPane {
                 Client client = new Client(texteDeExplication.getText(),10013);
 
                 try {
-                    client.connect();
+                    client.connexion();
                     Rejoindre.super.getScene().setRoot(new FenetreMagasin());
                 } catch (IOException ex) {
                     entreeDeTexte.setText("Une erreur c'est produite, essayez à un nouveau");
@@ -39,5 +40,9 @@ public class Rejoindre extends BorderPane {
                 }
             }
         });
+    }
+
+    public static Client getClient() {
+        return client;
     }
 }
