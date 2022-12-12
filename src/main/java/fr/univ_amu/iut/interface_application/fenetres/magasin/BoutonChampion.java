@@ -5,7 +5,13 @@ import javafx.scene.control.Button;
 
 public class BoutonChampion extends Button {
     private Entite entite;
+    private int indiceBouton;
 
+    public BoutonChampion(Entite entite, int indiceBouton){
+        super();
+        setEntite(entite);
+        this.indiceBouton = indiceBouton;
+    }
     public BoutonChampion(Entite entite){
         super();
         setEntite(entite);
@@ -32,5 +38,9 @@ public class BoutonChampion extends Button {
     public void setEntite(Entite entite) {
         this.entite = entite;
         initBouton();
+    }
+
+    public int getIndiceBouton() {
+        return indiceBouton;
     }
 }

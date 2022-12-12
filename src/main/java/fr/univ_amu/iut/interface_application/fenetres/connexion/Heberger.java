@@ -13,6 +13,7 @@ import java.io.IOException;
 public class Heberger extends BorderPane {
     private Button heberger = new Button("Cliquez ici pour heberger la partie");
     private Label texteDeAttente = new Label("En attente que un autre joueur vous rejoigne ...");
+    public static Serveur serveur;
     public Heberger(){
         super();
         initialisationBoutons();
@@ -25,14 +26,14 @@ public class Heberger extends BorderPane {
             public void handle(ActionEvent e) {
                 //Stuff
                 Heberger.super.setCenter(texteDeAttente);
-                Serveur serveur = new Serveur(10013);
+                serveur = new Serveur(10013);
                 Thread receive = new Thread(new Runnable() {
                     String msg;
 
                     @Override
                     public void run() {
                         try {
-                            serveur.launch();
+                            serveur.connexion();
                         } catch (IOException ex) {
                             throw new RuntimeException(ex);
                         }
@@ -43,5 +44,9 @@ public class Heberger extends BorderPane {
                 receive.start();
             }
         });
+    }
+
+    public static Serveur getServeur() {
+        return serveur;
     }
 }
