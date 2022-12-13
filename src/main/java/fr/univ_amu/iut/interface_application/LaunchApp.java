@@ -1,11 +1,7 @@
 package fr.univ_amu.iut.interface_application;
 
-import fr.univ_amu.iut.backend.entites.Assassin;
-import fr.univ_amu.iut.backend.entites.Rarete;
-import fr.univ_amu.iut.backend.entites.Yordle;
 import fr.univ_amu.iut.interface_application.fenetres.connexion.Heberger;
 import fr.univ_amu.iut.interface_application.fenetres.connexion.Rejoindre;
-import fr.univ_amu.iut.interface_application.fenetres.magasin.FenetreMagasin;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -25,16 +21,19 @@ public class LaunchApp extends Application {
         initialisationBoutons();
 
         HBox boutons = new HBox(rejoindre,heberger);
-        racine.setBottom(boutons);
-
-        scene = new Scene(racine,800,600);
-        primaryStage.setTitle("TFT");
+        racine.setCenter(boutons);
+        racine.setId("arrierePlan");
+        boutons.setId("conteneurBoutonsAccueil");
+        scene = new Scene(racine,1280,720);
+        scene.getStylesheets().add("style.css");
+        primaryStage.setTitle("ECS Online");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.show();
     }
 
     private void initialisationBoutons(){
+        rejoindre.getStyleClass().add("bouton_management");
         rejoindre.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
@@ -42,7 +41,7 @@ public class LaunchApp extends Application {
                 scene.setRoot(new Rejoindre());
             }
         });
-
+        heberger.getStyleClass().add("bouton_management");
         heberger.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {

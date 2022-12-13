@@ -1,0 +1,43 @@
+#arrierePlan{
+    -fx-background-image: url("arrierePlanAccueil.jpg");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: 100% 100%;
+}
+
+#conteneurBoutonsAccueil{
+    -fx-padding: 350 0 0 0;
+    -fx-alignment: center;
+    -fx-spacing: 100;
+}
+
+.bouton_management{
+    -fx-background-image: url("boutonArrierePlan.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: 100% 100%;
+    -fx-border-color: transparent;
+    -fx-background-color: transparent;
+    -fx-font-size: 40;
+}
+
+#arrierePlan_rejoindre{
+    -fx-background-image: url("arrierePlanRejoindre.jpg");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: 100% 100%;
+}
+
+#conteneurElementsRejoindre{
+    -fx-padding: 200 0 0 0;
+    -fx-alignment: center;
+    -fx-spacing: 100;
+}
+
+#entreeIpRejoindre{
+    -fx-max-width: 440;
+    -fx-font-size: 20;
+    -fx-alignment: center;
+    -fx-border-color: #7b47f5;
+    -fx-prompt-text-fill: gray;
+}
