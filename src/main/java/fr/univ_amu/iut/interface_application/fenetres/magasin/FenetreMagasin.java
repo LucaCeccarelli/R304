@@ -12,13 +12,13 @@ import javafx.scene.layout.HBox;
 import java.util.ArrayList;
 
 public class FenetreMagasin extends BorderPane {
-    private Label texteDeExplication = new Label("Cliquez sur le champion pour l'acheter");
     private HBox conteneurDesBoutonsChampion = new HBox();
     private Magasin magasin;
     private ArrayList<BoutonChampion> boutonsChampions = new ArrayList<>(5);
     private Joueur joueur;
     public FenetreMagasin(){
         super();
+        super.setId("arrierePlanMagasin");
         joueur = new Joueur("Moi");
 
         InitListeChampionsExistants.InitListe();
@@ -26,7 +26,6 @@ public class FenetreMagasin extends BorderPane {
         magasin = new Magasin();
         initBoutonsChampions();
         chargerBoutonsAchatChampions();
-        super.setTop(texteDeExplication);
         super.setCenter(conteneurDesBoutonsChampion);
     }
 
@@ -38,6 +37,7 @@ public class FenetreMagasin extends BorderPane {
     }
 
     private void initBoutonsChampions(){
+        conteneurDesBoutonsChampion.setId("listeChampions");
         for (int i = 0; i < 5; i++) {
             boutonsChampions.add(new BoutonChampion());
             boutonsChampions.get(i).setOnAction(new EventHandler<ActionEvent>() {

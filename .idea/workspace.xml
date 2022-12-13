@@ -14,7 +14,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/univ_amu/iut/interface_application/fenetres/connexion/Heberger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/univ_amu/iut/interface_application/fenetres/connexion/Heberger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/univ_amu/iut/interface_application/fenetres/magasin/BoutonChampion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/univ_amu/iut/interface_application/fenetres/magasin/BoutonChampion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/univ_amu/iut/interface_application/fenetres/magasin/FenetreMagasin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/univ_amu/iut/interface_application/fenetres/magasin/FenetreMagasin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -223,7 +224,7 @@
       <workItem from="1669362738251" duration="4871000" />
       <workItem from="1670701212031" duration="7639000" />
       <workItem from="1670943463878" duration="702000" />
-      <workItem from="1670945164405" duration="9708000" />
+      <workItem from="1670945164405" duration="13225000" />
     </task>
     <servers />
   </component>
