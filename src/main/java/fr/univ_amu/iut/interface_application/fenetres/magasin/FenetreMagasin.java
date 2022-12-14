@@ -3,6 +3,7 @@ package fr.univ_amu.iut.interface_application.fenetres.magasin;
 import fr.univ_amu.iut.backend.joueur.Joueur;
 import fr.univ_amu.iut.backend.magasin.InitListeChampionsExistants;
 import fr.univ_amu.iut.backend.magasin.Magasin;
+import fr.univ_amu.iut.backend.magasin.NomEntiteNonPresentDansMagasinException;
 import fr.univ_amu.iut.interface_application.fenetres.combat.CombatClient;
 import fr.univ_amu.iut.interface_application.fenetres.combat.CombatServeur;
 import fr.univ_amu.iut.interface_application.fenetres.connexion.Heberger;
@@ -47,7 +48,13 @@ public class FenetreMagasin extends BorderPane {
             boutonsChampions.get(i).setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent e) {
-                    joueur.ajouterAuPaquet(((BoutonChampion)e.getSource()).getEntite());
+
+                    try {
+                        joueur.ajouterAuPaquet(magasin.achat(((BoutonChampion)e.getSource()).getEntite().getNom()));
+                    } catch (NomEntiteNonPresentDansMagasinException ex) {
+                        throw new RuntimeException(ex);
+                    }
+
                     verifierTaillePaquet();
                     chargerBoutonsAchatChampions();
                 }

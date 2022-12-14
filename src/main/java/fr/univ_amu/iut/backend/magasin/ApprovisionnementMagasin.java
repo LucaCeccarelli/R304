@@ -13,15 +13,15 @@ public class ApprovisionnementMagasin {
     protected static void ajouterALaListeDesChampionsExistants(Entite entite){
         listeChampionsExistants.add(entite);
     }
-    protected Paquet getListeCommun(){
+    protected static Paquet getListeCommun(){
         return listeCommun;
     }
 
-    protected Paquet getListeRare(){
+    protected static Paquet getListeRare(){
         return listeRare;
     }
 
-    protected Paquet getListeLegendaire(){
+    protected static Paquet getListeLegendaire(){
         return listeLegendaire;
     }
 
@@ -54,6 +54,5 @@ public class ApprovisionnementMagasin {
                 case LEGENDAIRE -> listeLegendaire.add(entite);
             }
         }
-
     }
 }

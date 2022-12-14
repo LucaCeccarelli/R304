@@ -4,6 +4,7 @@ import fr.univ_amu.iut.backend.entites.Entite;
 import fr.univ_amu.iut.backend.joueur.Joueur;
 import fr.univ_amu.iut.backend.outils.multijoueur.client.Client;
 import fr.univ_amu.iut.interface_application.fenetres.connexion.Rejoindre;
+import fr.univ_amu.iut.interface_application.fenetres.fenetre_fin.FinPartie;
 
 public class CombatClient extends Combat {
     private Client client;
@@ -24,9 +25,9 @@ public class CombatClient extends Combat {
             }
             if(!client.estEntitesRecuesVide()){break;}
         }
-        //Attendre qlq secondes histoire d'etre sur de tt recevoir
-        super.getBoutonChampionChoisiAuCombat().setEntite(client.getBufferRecu() );
+        Entite entiteAdversaire = client.getBufferRecu();
 
+        entiteAdversaire.attaquer(super.getBoutonChampionChoisiAuCombat().getEntite());
         super.verifieSiChampionVivant();
         //TODO : Separer de combat
         asPerdu();
@@ -34,8 +35,10 @@ public class CombatClient extends Combat {
     }
 
     public void asPerdu(){
-        if(joueur.getPaquet().size() == 0){
+        if(super.verifieSiTousLesChampionsSontMorts()){
+            System.out.println("Tu as Perdu");
             client.deconnexion();
+            super.getScene().setRoot(new FinPartie("T'as Perdu"));
         }
     }
 }
