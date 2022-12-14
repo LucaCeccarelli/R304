@@ -7,19 +7,25 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 
 import java.io.IOException;
+import java.net.*;
+import java.util.Enumeration;
 
 public class Heberger extends BorderPane {
     private Button heberger = new Button("Cliquez ici pour heberger la partie");
     private Label texteDeAttente = new Label("En attente que un autre joueur vous rejoigne ...");
+
+    private Label IPLocale = new Label();
+    private VBox texteAttenteIPLocale = new VBox();
     public static Serveur serveur;
-    public Heberger(){
+    public Heberger() throws UnknownHostException {
         super();
         super.setId("arrierePlan_heberger");
         initialisationBoutons();
         super.setCenter(heberger);
-        texteDeAttente.setId("texteAttenteHeberger");
+        initialisationTexteEtIp();
     }
 
     private void initialisationBoutons(){
@@ -28,7 +34,7 @@ public class Heberger extends BorderPane {
             @Override
             public void handle(ActionEvent e) {
                 //Stuff
-                Heberger.super.setCenter(texteDeAttente);
+                Heberger.super.setCenter(texteAttenteIPLocale);
                 serveur = new Serveur(10013);
                 Thread receive = new Thread(new Runnable() {
                     String msg;
@@ -47,6 +53,35 @@ public class Heberger extends BorderPane {
                 receive.start();
             }
         });
+    }
+
+    public void initialisationTexteEtIp() throws UnknownHostException {
+        texteAttenteIPLocale.setId("conteneurIPTexteHeberger");
+        IPLocale.setText("Votre adresse IP est : " + recupererIpLocale().toString().substring(1));
+        texteAttenteIPLocale.getChildren().addAll(texteDeAttente, IPLocale);
+    }
+
+    public InetAddress recupererIpLocale() throws UnknownHostException {
+        try {
+            for (Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces(); interfaces.hasMoreElements();) {
+                NetworkInterface networkInterface = interfaces.nextElement();
+                if (networkInterface.isLoopback() || !networkInterface.isUp())
+                    continue;
+
+                Enumeration<InetAddress> addresses = networkInterface.getInetAddresses();
+                while (addresses.hasMoreElements()) {
+                    InetAddress addr = addresses.nextElement();
+                    if (addr.isLoopbackAddress())
+                        continue;
+
+                    if (addr instanceof Inet4Address)
+                        return addr;
+                }
+            }
+        } catch (SocketException e) {
+            e.printStackTrace();
+        }
+        return InetAddress.getLocalHost();
     }
 
     public static Serveur getServeur() {
