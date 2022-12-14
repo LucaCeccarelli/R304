@@ -7,7 +7,6 @@ import javafx.scene.Scene;
 
 public class NotifierConnexion implements Observer {
     private Scene scene;
-    private Thread thread;
     public NotifierConnexion(Scene scene) {
         this.scene = scene;
 

@@ -4,5 +4,6 @@ module fr.univ_amu.iut {
 
 
     opens fr.univ_amu.iut.interface_application to javafx.fxml;
-    exports fr.univ_amu.iut.interface_application;
+    exports fr.univ_amu.iut;
+    opens fr.univ_amu.iut to javafx.fxml;
 }

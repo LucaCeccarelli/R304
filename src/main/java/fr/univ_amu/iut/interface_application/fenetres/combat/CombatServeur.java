@@ -36,5 +36,15 @@ public class CombatServeur extends Combat{
 
         //Verifie si champion au combat tjr vivant
         super.verifieSiChampionVivant();
+        //TODO : Separer de combat
+        asPerdu();
+        asGagne();
+        //Verifier
+    }
+
+    public void asPerdu(){
+        if(joueur.getPaquet().size() == 0){
+            serveur.deconnexion();
+        }
     }
 }

@@ -8,6 +8,7 @@ import fr.univ_amu.iut.backend.magasin.NomEntiteNonPresentDansMagasinException;
 import java.util.Scanner;
 
 public class Partie {
+    public static boolean asGagne = false;
     protected static void phaseAchat(Joueur joueur){
         Magasin magasin = new Magasin();
 

@@ -2,13 +2,13 @@ package fr.univ_amu.iut.backend.outils.multijoueur;
 
 import fr.univ_amu.iut.backend.entites.Entite;
 import fr.univ_amu.iut.backend.outils.Paquet;
+import fr.univ_amu.iut.backend.partie.Partie;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 public abstract class SocketEchange {
-    protected String nomDomaine;
     protected int port;
     protected Paquet entitesRecues;
     protected ObjectOutputStream oout;
@@ -25,7 +25,8 @@ public abstract class SocketEchange {
             oout.flush();
             Thread.sleep(500);
         } catch (IOException | InterruptedException e) {
-            throw new RuntimeException(e);
+            //throw new RuntimeException(e);
+            Partie.asGagne = true;
         }
     }
 
@@ -42,7 +43,7 @@ public abstract class SocketEchange {
 
                 } catch (IOException | ClassNotFoundException e) {
                     System.out.println("Serveur hors service");
-
+                    Partie.asGagne = true;
                     try {
                         oout.close();
                     } catch (IOException ex) {
@@ -64,5 +65,12 @@ public abstract class SocketEchange {
 
     public boolean estEntitesRecuesVide(){
         return entitesRecues.size() == 0;
+    }
+    public void deconnexion(){
+        try {
+            oout.close();
+        } catch (IOException e) {
+            System.out.println("Vous avez perdu");
+        }
     }
 }
