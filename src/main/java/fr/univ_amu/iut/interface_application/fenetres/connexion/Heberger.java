@@ -16,11 +16,14 @@ public class Heberger extends BorderPane {
     public static Serveur serveur;
     public Heberger(){
         super();
+        super.setId("arrierePlan_heberger");
         initialisationBoutons();
         super.setCenter(heberger);
+        texteDeAttente.setId("texteAttenteHeberger");
     }
 
     private void initialisationBoutons(){
+        heberger.getStyleClass().add("bouton_management");
         heberger.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
