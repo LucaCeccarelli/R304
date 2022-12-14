@@ -17,22 +17,27 @@ import java.util.ArrayList;
 
 public abstract class Combat extends BorderPane {
     public Joueur joueur;
-    private Label texteDeExplication = new Label("Cliquez sur le champion que vous voulez utiliser pour le combat");
     private HBox conteneurDesBoutonsChampion = new HBox();
+
+    private HBox conteneurCombattant = new HBox();
     private ArrayList<BoutonChampion> boutonsChampions = new ArrayList<>(5);
     private BoutonChampion boutonChampionChoisiAuCombat = new BoutonChampion();
     private Button combat = new Button("Se battre ! ");
     public Combat(Joueur joueur){
         super();
         this.joueur = joueur;
-
+        this.setId("arrierePlanCombat");
+        initId();
         initBoutonCombat();
-
-        super.setTop(texteDeExplication);
         initBoutonsChampions();
         super.setBottom(conteneurDesBoutonsChampion);
 
         //Si plus de vie faire disparraitre de l'ecran
+    }
+    private void initId(){
+        conteneurDesBoutonsChampion.setId("conteneurChampions");
+        conteneurCombattant.setId("conteneurCombattant");
+        combat.setId("boutonSeBattre");
     }
     private void initBoutonCombat(){
         combat.setOnAction(new EventHandler<ActionEvent>() {
@@ -53,8 +58,8 @@ public abstract class Combat extends BorderPane {
                     //Choisir ce champion pour aller au combat
                     boutonChampionChoisiAuCombat.setEntite( ( (BoutonChampion) (e.getSource()) ).getEntite() );
                     boutonChampionChoisiAuCombat.setIndiceBouton( ( (BoutonChampion) (e.getSource()) ).getIndiceBouton() );
-                    Combat.super.setCenter( boutonChampionChoisiAuCombat );
-                    Combat.super.setLeft(combat);
+                    conteneurCombattant.getChildren().addAll(boutonChampionChoisiAuCombat, combat);
+                    Combat.super.setCenter(conteneurCombattant);
                     // a voir
                 }
             });
