@@ -44,7 +44,9 @@ public abstract class Combat extends BorderPane {
             @Override
             public void handle(ActionEvent e) {
                 combat();
-                Combat.super.setLeft(null);
+                //Recharger Affichage
+                conteneurCombattant.getChildren().clear();
+                Combat.super.setCenter(null);
             }
         });
     }
@@ -58,6 +60,7 @@ public abstract class Combat extends BorderPane {
                     //Choisir ce champion pour aller au combat
                     boutonChampionChoisiAuCombat.setEntite( ( (BoutonChampion) (e.getSource()) ).getEntite() );
                     boutonChampionChoisiAuCombat.setIndiceBouton( ( (BoutonChampion) (e.getSource()) ).getIndiceBouton() );
+                    conteneurCombattant.getChildren().clear();
                     conteneurCombattant.getChildren().addAll(boutonChampionChoisiAuCombat, combat);
                     Combat.super.setCenter(conteneurCombattant);
                     // a voir
@@ -67,16 +70,12 @@ public abstract class Combat extends BorderPane {
         }
     }
     public void verifieSiChampionVivant(){
-        Combat.super.setCenter(null);
-        Combat.super.setLeft(null);
         if( boutonChampionChoisiAuCombat.getEntite().getPointsVie() == 0){
             conteneurDesBoutonsChampion.getChildren().remove(boutonChampionChoisiAuCombat.getIndiceBouton());
             boutonsChampions.remove( boutonChampionChoisiAuCombat.getIndiceBouton() );
             return;
         }
         boutonsChampions.get( boutonChampionChoisiAuCombat.getIndiceBouton() ).setEntite(boutonChampionChoisiAuCombat.getEntite() );
-        conteneurDesBoutonsChampion.getChildren().clear();
-        initBoutonsChampions();
     }
 
     public abstract void combat();
