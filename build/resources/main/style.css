@@ -66,3 +66,33 @@
     -fx-spacing: 25;
 }
 
+#arrierePlanCombat{
+    -fx-background-image: url("arrierePlanCombat.jpg");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: 100% 100%;
+}
+
+#conteneurChampions{
+    -fx-alignment: center;
+    -fx-padding: 0 0 165 0;
+    -fx-spacing: 10;
+}
+
+#conteneurCombattant{
+    -fx-padding: 200 0 0 0;
+    -fx-alignment: center;
+    -fx-spacing: 50;
+}
+
+#boutonSeBattre{
+    -fx-border-color: transparent;
+    -fx-background-color: black;
+    -fx-background-radius: 20;
+    -fx-font-size: 40;
+    -fx-text-fill: white;
+}
+
+#boutonSeBattre:hover{
+    -fx-background-color: #ff1616;
+}

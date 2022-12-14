@@ -51,8 +51,7 @@ public class Rejoindre extends BorderPane {
         entreeDeTexte.setPromptText("IP de l'hébergeur");
         entreeDeTexte.setId("entreeIpRejoindre");
         conteneurBoutonZoneTexte.setId("conteneurElementsRejoindre");
-        conteneurBoutonZoneTexte.getChildren().add(entreeDeTexte);
-        conteneurBoutonZoneTexte.getChildren().add(rejoindre);
+        conteneurBoutonZoneTexte.getChildren().addAll(entreeDeTexte, rejoindre);
         rejoindre.setDefaultButton(true);
     }
 
