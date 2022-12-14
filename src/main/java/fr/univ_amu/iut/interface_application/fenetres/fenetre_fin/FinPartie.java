@@ -4,15 +4,16 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 
 public class FinPartie extends BorderPane {
-    private String texte ;
-    public FinPartie(String texte){
+    public FinPartie(boolean aGagne){
         super();
-        super.setId("finDePartie");
-        this.texte = texte;
-        messageFinPartie();
+        choixArrierePlan(aGagne);
     }
 
-    public void messageFinPartie(){
-        super.setCenter(new Label(texte));
+    public void choixArrierePlan(boolean aGagne){
+        if(aGagne){
+            super.setId("finDePartieVictoire");
+        } else {
+            super.setId("finDePartieDefaite");
+        }
     }
 }
