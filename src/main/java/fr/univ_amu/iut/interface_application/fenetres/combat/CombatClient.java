@@ -10,16 +10,18 @@ public class CombatClient extends Combat {
     public CombatClient(Joueur joueur) {
         super(joueur);
         client = Rejoindre.getClient();
-        client.ecouter();
     }
 
     @Override
     public void combat() {
-        client.envoyer( super.getBoutonChampionChoisiAuCombat().getEntite() );
+        client.ecouter();
+        client.envoyer(super.getBoutonChampionChoisiAuCombat().getEntite().getPointsAttaque());
+        while (client.estDegatsRecusVide()){
 
-        //Attendre qlq secondes histoire d'etre sur de tt recevoir
-        super.getBoutonChampionChoisiAuCombat().setEntite(client.getBufferRecu() );
+        }
+        super.getBoutonChampionChoisiAuCombat().getEntite().recevoirDegats(client.getBufferRecu());
 
         super.verifieSiChampionVivant();
+
     }
 }

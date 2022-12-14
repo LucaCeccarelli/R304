@@ -28,7 +28,7 @@ tasks.withType(JavaCompile) {
 
 application {
     mainModule = 'fr.univ_amu.iut.interface_application'
-    mainClass = 'fr.univ_amu.iut.interface_application.MainApp'
+    mainClass = 'fr.univ_amu.iut.interface_application.LaunchApp'
 }
 
 javafx {
@@ -45,3 +45,12 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+jar {
+    manifest {
+        attributes "Main-Class": "fr.univ_amu.iut.interface_application.LaunchApp"
+    }
+
+
+}
+

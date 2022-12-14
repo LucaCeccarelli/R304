@@ -44,9 +44,13 @@ public class Serveur extends SocketEchange implements Observable {
             server = new ServerSocket(super.port);
             System.out.println("Serveur de jeu lancé sur le port : " + port);
             Socket client = server.accept();
+        System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
             notifyObserver();
-            oout = new ObjectOutputStream(client.getOutputStream());
-            oin = new ObjectInputStream(client.getInputStream());
-
+        System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+            dout = new DataOutputStream(client.getOutputStream());
+            din = new DataInputStream(client.getInputStream());
+        System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+        System.out.println(dout);
+        System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
     }
 }

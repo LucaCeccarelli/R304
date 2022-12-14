@@ -10,23 +10,19 @@ public class CombatServeur extends Combat{
     public CombatServeur(Joueur joueur) {
         super(joueur);
         serveur = Heberger.getServeur();
-        serveur.ecouter();
+
     }
 
     @Override
     public void combat() {
-        //Attendre que le client aie envoyé son champion
-        // recois entite
-        Entite entiteAdversaire = serveur.getBufferRecu();
+        serveur.ecouter();
+        serveur.envoyer(super.getBoutonChampionChoisiAuCombat().getEntite().getPointsAttaque());
+        while (serveur.estDegatsRecusVide()){
 
-        //Combat entre les 2
-        super.getBoutonChampionChoisiAuCombat().getEntite().attaquer(entiteAdversaire);
-        entiteAdversaire.attaquer(super.getBoutonChampionChoisiAuCombat().getEntite());
+        }
+        super.getBoutonChampionChoisiAuCombat().getEntite().recevoirDegats(serveur.getBufferRecu());
 
-        //Renvoie entité modifé
-        serveur.envoyer(entiteAdversaire);
-
-        //Verifie si champion au combat tjr vivant
         super.verifieSiChampionVivant();
     }
+
 }

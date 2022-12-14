@@ -86,27 +86,15 @@ public abstract class Entite {
                 '}';
     }
 
-    public void attaquer(Entite adversaire) {
+    public void recevoirDegats(int attaqueAdv) {
         int attaque;
-        System.out.println(this.getNom() + " attaque " + adversaire.getNom() + "!");
-        attaque = (int) (this.pointsAttaque*(1.01-(adversaire.getPointsDefense()/100)));
-        System.out.println(attaque);
+        attaque = (int) (attaqueAdv*(1.01-(this.getPointsDefense()/100)));
         attaque = (int) (attaque*FonctionAleatoire.random.nextDouble(0.5, 1));
-        if (attaque >= 30) {
-            System.out.println("Coup critique");
-        } else if (attaque < 30 && attaque >= 10){
-            System.out.println("Coup moyen");
+        if (this.getPointsVie() <= attaque){
+            this.setPointsVie(0);
         } else {
-            System.out.println("Coup faible");
+            this.setPointsVie(this.getPointsVie()-attaque);
         }
-        if (adversaire.getPointsVie() <= attaque){
-            System.out.println(adversaire.getNom() + " a péris");
-            adversaire.setPointsVie(0);
-        } else {
-            adversaire.setPointsVie(adversaire.getPointsVie()-attaque);
-        }
-        System.out.println("L'attaque a engendré une perte de " + attaque + " PV");
-        System.out.println("L'entitée attaquée a : " + adversaire.getPointsVie() + " points de vie");
     }
 
     public abstract void competence();

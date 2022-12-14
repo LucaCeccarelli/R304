@@ -3,6 +3,10 @@ package fr.univ_amu.iut.interface_application.fenetres.magasin;
 import fr.univ_amu.iut.backend.joueur.Joueur;
 import fr.univ_amu.iut.backend.magasin.InitListeChampionsExistants;
 import fr.univ_amu.iut.backend.magasin.Magasin;
+import fr.univ_amu.iut.interface_application.fenetres.combat.CombatClient;
+import fr.univ_amu.iut.interface_application.fenetres.combat.CombatServeur;
+import fr.univ_amu.iut.interface_application.fenetres.connexion.Heberger;
+import fr.univ_amu.iut.interface_application.fenetres.connexion.Rejoindre;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Label;
@@ -20,7 +24,6 @@ public class FenetreMagasin extends BorderPane {
     public FenetreMagasin(){
         super();
         joueur = new Joueur("Moi");
-
         InitListeChampionsExistants.InitListe();
 
         magasin = new Magasin();
@@ -43,11 +46,23 @@ public class FenetreMagasin extends BorderPane {
             boutonsChampions.get(i).setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent e) {
+                    verifierTaillePaquet();
                     joueur.ajouterAuPaquet(((BoutonChampion)e.getSource()).getEntite());
                     chargerBoutonsAchatChampions();
                 }
             });
             conteneurDesBoutonsChampion.getChildren().add(boutonsChampions.get(i)); // ajouter le bouton à la hbox
+        }
+    }
+
+    private void verifierTaillePaquet(){
+        if(joueur.getPaquet().size()>4){
+            System.out.println(Rejoindre.getClient() != null);
+            if(Rejoindre.getClient() != null){
+                FenetreMagasin.super.getScene().setRoot(new CombatClient(joueur));
+            } else if (Heberger.getServeur() != null) {
+                FenetreMagasin.super.getScene().setRoot(new CombatServeur(joueur));
+            }
         }
     }
 }

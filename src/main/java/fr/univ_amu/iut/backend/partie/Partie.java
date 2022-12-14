@@ -30,7 +30,8 @@ public class Partie {
         }
     }
 
-    protected static Joueur phaseCombat(Joueur joueur1,Joueur joueur2) throws InterruptedException {
+    protected static void phaseCombat(Joueur joueur1,Joueur joueur2) throws InterruptedException {
+        /**
         int tour = 0;
         boolean fin = false;
         Joueur gagnant = null;
@@ -101,7 +102,7 @@ public class Partie {
         if (gagnant == null) {
             System.out.println("Egalité entre les joueurs");
         }
-        return gagnant;
+        return gagnant;**/
     }
 
 }

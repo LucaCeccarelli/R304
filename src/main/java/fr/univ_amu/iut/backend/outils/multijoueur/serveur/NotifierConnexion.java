@@ -17,6 +17,6 @@ public class NotifierConnexion implements Observer {
     public void update(Observable observable) {
         System.out.println("Un client s'est connecté");
         scene.setRoot(new FenetreMagasin());
-        thread.stop();
+        //thread.stop();
     }
 }

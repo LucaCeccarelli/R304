@@ -29,8 +29,7 @@ public class Rejoindre extends BorderPane {
             @Override
             public void handle(ActionEvent e) {
                 //Stuff
-                Client client = new Client(texteDeExplication.getText(),10013);
-
+                client = new Client(entreeDeTexte.getText(),10013);
                 try {
                     client.connexion();
                     Rejoindre.super.getScene().setRoot(new FenetreMagasin());

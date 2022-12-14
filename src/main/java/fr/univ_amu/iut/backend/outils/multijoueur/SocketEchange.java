@@ -3,45 +3,44 @@ package fr.univ_amu.iut.backend.outils.multijoueur;
 import fr.univ_amu.iut.backend.entites.Entite;
 import fr.univ_amu.iut.backend.outils.Paquet;
 
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
+import java.util.ArrayList;
 
 public abstract class SocketEchange {
-    protected String nomDomaine;
     protected int port;
-    protected Paquet entitesRecues;
-    protected ObjectOutputStream oout;
-    protected ObjectInputStream oin ;
+    protected ArrayList<Integer> degatsRecus;
+    protected DataOutputStream dout;
+    protected DataInputStream din ;
 
     public SocketEchange(int port){
         this.port = port;
     }
     public abstract void connexion() throws IOException;
 
-    public void envoyer(Entite entite){
+    public void envoyer(int attaqueAdv){
         try {
-            oout.writeObject(entite);
-            oout.flush();
-            Thread.sleep(500);
-        } catch (IOException | InterruptedException e) {
+            dout.writeInt(attaqueAdv);
+            dout.flush();
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
     public void ecouter(){
-        entitesRecues = new Paquet();
+        degatsRecus = new ArrayList<>();
 
         Thread recevoir = new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
-                    while (oin.read()!= -1){
-                        entitesRecues.add(  ( (Entite)(oin.readObject()) ));
+                    while (din.available()>0){
+                        int degats = din.readInt();
+                        degatsRecus.add(degats);
+                        System.out.println(degats);
                     }
                     System.out.println("Serveur hors service");
-                    oout.close();
-                } catch (IOException | ClassNotFoundException e) {
+                    dout.close();
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
@@ -49,9 +48,13 @@ public abstract class SocketEchange {
         recevoir.start();
     }
 
-    public Entite getBufferRecu(){
-        Entite entiteRecue = entitesRecues.get(0);
-        entitesRecues.remove(0);
-        return entiteRecue;
+    public int getBufferRecu(){
+        int degatRecu = degatsRecus.get(0);
+        degatsRecus.remove(0);
+        return degatRecu;
+    }
+
+    public boolean estDegatsRecusVide(){
+        return degatsRecus.size() == 0;
     }
 }
