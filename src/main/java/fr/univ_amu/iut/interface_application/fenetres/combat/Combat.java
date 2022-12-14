@@ -14,6 +14,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public abstract class Combat extends BorderPane {
     public Joueur joueur;
@@ -71,8 +72,7 @@ public abstract class Combat extends BorderPane {
     }
     public void verifieSiChampionVivant(){
         if( boutonChampionChoisiAuCombat.getEntite().getPointsVie() == 0){
-            conteneurDesBoutonsChampion.getChildren().remove(boutonChampionChoisiAuCombat.getIndiceBouton());
-            boutonsChampions.remove( boutonChampionChoisiAuCombat.getIndiceBouton() );
+            conteneurDesBoutonsChampion.getChildren().get(boutonChampionChoisiAuCombat.getIndiceBouton()).setVisible(false);
             return;
         }
         boutonsChampions.get( boutonChampionChoisiAuCombat.getIndiceBouton() ).setEntite(boutonChampionChoisiAuCombat.getEntite() );
@@ -86,7 +86,19 @@ public abstract class Combat extends BorderPane {
 
     public void asGagne(){
         if(Partie.asGagne){
-            super.getScene().setRoot(new FinPartie());
+            super.getScene().setRoot(new FinPartie("Victoire"));
         }
+    }
+
+    public boolean verifieSiTousLesChampionsSontMorts(){
+        int counter = 0;
+        for (BoutonChampion champion: boutonsChampions) {
+            System.out.println(champion.getEntite());
+            if(champion.getEntite().getPointsVie() == 0){
+                counter+=1;
+            }
+        }
+        System.out.println(counter);
+        return counter == joueur.getPaquet().size();
     }
 }

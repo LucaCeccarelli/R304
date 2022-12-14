@@ -16,8 +16,17 @@ public class Magasin{
         }
 
         public Entite achat(String nomEntite) throws NomEntiteNonPresentDansMagasinException {
-                for (Entite entite : magasin) {
-                        if(entite.getNom().equals(nomEntite)){
+                for (int i = 0; i < magasin.size(); i++) {
+                        if(magasin.get(i).getNom().equals(nomEntite)){
+
+                                switch (magasin.get(i).getRarete()){
+                                        case RARE -> ApprovisionnementMagasin.getListeRare().remove(magasin.get(i));
+                                        case COMMUN -> ApprovisionnementMagasin.getListeCommun().remove(magasin.get(i));
+                                        case LEGENDAIRE -> ApprovisionnementMagasin.getListeLegendaire().remove(magasin.get(i));
+                                }
+
+                                Entite entite = magasin.get(i);
+                                magasin.remove(i);
                                 return entite;
                         }
                 }

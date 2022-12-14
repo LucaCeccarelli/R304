@@ -4,6 +4,7 @@ import fr.univ_amu.iut.backend.entites.Entite;
 import fr.univ_amu.iut.backend.joueur.Joueur;
 import fr.univ_amu.iut.backend.outils.multijoueur.serveur.Serveur;
 import fr.univ_amu.iut.interface_application.fenetres.connexion.Heberger;
+import fr.univ_amu.iut.interface_application.fenetres.fenetre_fin.FinPartie;
 
 public class CombatServeur extends Combat{
     Serveur serveur;
@@ -17,6 +18,7 @@ public class CombatServeur extends Combat{
     public void combat() {
         //Attendre que le client aie envoyé son champion
         System.out.println(serveur.estEntitesRecuesVide());
+        serveur.envoyer(super.getBoutonChampionChoisiAuCombat().getEntite());
         while (true){
             try {
                 Thread.sleep(300);
@@ -27,12 +29,7 @@ public class CombatServeur extends Combat{
         }
         Entite entiteAdversaire = serveur.getBufferRecu();
 
-        //Combat entre les 2
-        super.getBoutonChampionChoisiAuCombat().getEntite().attaquer(entiteAdversaire);
         entiteAdversaire.attaquer(super.getBoutonChampionChoisiAuCombat().getEntite());
-
-        //Renvoie entité modifé
-        serveur.envoyer(entiteAdversaire);
 
         //Verifie si champion au combat tjr vivant
         super.verifieSiChampionVivant();
@@ -43,8 +40,10 @@ public class CombatServeur extends Combat{
     }
 
     public void asPerdu(){
-        if(joueur.getPaquet().size() == 0){
+        if(super.verifieSiTousLesChampionsSontMorts()){
+            System.out.println("Tu as Perdu");
             serveur.deconnexion();
+            super.getScene().setRoot(new FinPartie("T'as Perdu"));
         }
     }
 }
