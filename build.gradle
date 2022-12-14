@@ -27,8 +27,8 @@ tasks.withType(JavaCompile) {
 }
 
 application {
-    mainModule = 'fr.univ_amu.iut.interface_application'
-    mainClass = 'fr.univ_amu.iut.interface_application.MainApp'
+    mainModule = 'fr.univ_amu.iut'
+    mainClass = 'fr.univ_amu.iut.LaunchApp'
 }
 
 javafx {
@@ -48,7 +48,7 @@ test {
 
 jar {
     manifest {
-        attributes "Main-Class": "fr.univ_amu.iut.interface_application.LaunchApp"
+        attributes "Main-Class": "fr.univ_amu.iut.LaunchApp"
     }
 
 

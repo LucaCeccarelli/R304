@@ -28,5 +28,14 @@ public class CombatClient extends Combat {
         super.getBoutonChampionChoisiAuCombat().setEntite(client.getBufferRecu() );
 
         super.verifieSiChampionVivant();
+        //TODO : Separer de combat
+        asPerdu();
+        asGagne();
+    }
+
+    public void asPerdu(){
+        if(joueur.getPaquet().size() == 0){
+            client.deconnexion();
+        }
     }
 }
