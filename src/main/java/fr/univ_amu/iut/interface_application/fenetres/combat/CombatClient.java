@@ -38,7 +38,7 @@ public class CombatClient extends Combat {
         if(super.verifieSiTousLesChampionsSontMorts()){
             System.out.println("Tu as Perdu");
             client.deconnexion();
-            super.getScene().setRoot(new FinPartie("T'as Perdu"));
+            super.getScene().setRoot(new FinPartie(false));
         }
     }
 }

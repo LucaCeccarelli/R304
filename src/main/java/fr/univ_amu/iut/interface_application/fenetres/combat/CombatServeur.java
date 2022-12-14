@@ -43,7 +43,7 @@ public class CombatServeur extends Combat{
         if(super.verifieSiTousLesChampionsSontMorts()){
             System.out.println("Tu as Perdu");
             serveur.deconnexion();
-            super.getScene().setRoot(new FinPartie("T'as Perdu"));
+            super.getScene().setRoot(new FinPartie(false));
         }
     }
 }

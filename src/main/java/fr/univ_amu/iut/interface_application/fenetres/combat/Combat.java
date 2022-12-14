@@ -86,7 +86,7 @@ public abstract class Combat extends BorderPane {
 
     public void asGagne(){
         if(Partie.asGagne){
-            super.getScene().setRoot(new FinPartie("Victoire"));
+            super.getScene().setRoot(new FinPartie(true));
         }
     }
 

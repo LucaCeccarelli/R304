@@ -97,6 +97,20 @@
     -fx-background-color: #ff1616;
 }
 
+#finDePartieVictoire {
+    -fx-background-image: url("arrierePlanVictoire.jpg");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: 100% 100%;
+}
+
+#finDePartieDefaite {
+    -fx-background-image: url("arrierePlanDefaite.jpg");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: 100% 100%;
+}
+
 #conteneurIPTexteHeberger{
     -fx-padding: 60 0 0 0;
     -fx-alignment: center;
