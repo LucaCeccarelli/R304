@@ -96,3 +96,9 @@
 #boutonSeBattre:hover{
     -fx-background-color: #ff1616;
 }
+
+#conteneurIPTexteHeberger{
+    -fx-padding: 60 0 0 0;
+    -fx-alignment: center;
+    -fx-font-size: 20;
+}
