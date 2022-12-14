@@ -8,15 +8,14 @@ import javafx.scene.Scene;
 public class NotifierConnexion implements Observer {
     private Scene scene;
     private Thread thread;
-    public NotifierConnexion(Scene scene,Thread thread) {
+    public NotifierConnexion(Scene scene) {
         this.scene = scene;
-        this.thread = thread;
+
     }
 
     @Override
     public void update(Observable observable) {
         System.out.println("Un client s'est connecté");
         scene.setRoot(new FenetreMagasin());
-        thread.stop();
     }
 }

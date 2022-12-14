@@ -45,3 +45,11 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+jar {
+    manifest {
+        attributes "Main-Class": "fr.univ_amu.iut.interface_application.LaunchApp"
+    }
+
+
+}

@@ -36,12 +36,19 @@ public abstract class SocketEchange {
             @Override
             public void run() {
                 try {
-                    while (oin.read()!= -1){
+                    while (true){
                         entitesRecues.add(  ( (Entite)(oin.readObject()) ));
                     }
-                    System.out.println("Serveur hors service");
-                    oout.close();
+
                 } catch (IOException | ClassNotFoundException e) {
+                    System.out.println("Serveur hors service");
+
+                    try {
+                        oout.close();
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+
                     e.printStackTrace();
                 }
             }
@@ -53,5 +60,9 @@ public abstract class SocketEchange {
         Entite entiteRecue = entitesRecues.get(0);
         entitesRecues.remove(0);
         return entiteRecue;
+    }
+
+    public boolean estEntitesRecuesVide(){
+        return entitesRecues.size() == 0;
     }
 }

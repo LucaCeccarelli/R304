@@ -23,7 +23,8 @@ public class BoutonChampion extends Button {
 
     private void initBouton(){
         super.setText("Nom : "+entite.getNom()+"\n"
-                +"Type :"+entite.getType()+"\n" );
+                +"Type :"+entite.getType()+"\n"
+                +"Vie :"+entite.getPointsVie()+"\n" );
         switch (entite.getRarete()){
             case COMMUN -> super.setStyle("-fx-background-color: Green");
             case RARE -> super.setStyle("-fx-background-color: Purple");
@@ -42,5 +43,9 @@ public class BoutonChampion extends Button {
 
     public int getIndiceBouton() {
         return indiceBouton;
+    }
+
+    public void setIndiceBouton(int indiceBouton) {
+        this.indiceBouton = indiceBouton;
     }
 }
