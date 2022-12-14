@@ -16,7 +16,14 @@ public class CombatClient extends Combat {
     @Override
     public void combat() {
         client.envoyer( super.getBoutonChampionChoisiAuCombat().getEntite() );
-
+        while (true){
+            try {
+                Thread.sleep(300);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            if(!client.estEntitesRecuesVide()){break;}
+        }
         //Attendre qlq secondes histoire d'etre sur de tt recevoir
         super.getBoutonChampionChoisiAuCombat().setEntite(client.getBufferRecu() );
 

@@ -4,9 +4,10 @@ import fr.univ_amu.iut.backend.outils.observateur.Observable;
 import fr.univ_amu.iut.backend.outils.observateur.Observer;
 import fr.univ_amu.iut.backend.outils.FonctionAleatoire;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public abstract class Entite {
+public abstract class Entite implements Serializable {
 
     private Rarete rarete;
     private String nom;

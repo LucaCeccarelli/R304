@@ -39,7 +39,7 @@ public class Heberger extends BorderPane {
                         }
                     }
                 });
-                NotifierConnexion notifierConnexion = new NotifierConnexion(Heberger.super.getScene(),receive);
+                NotifierConnexion notifierConnexion = new NotifierConnexion(Heberger.super.getScene());
                 serveur.addObserver(notifierConnexion);
                 receive.start();
             }

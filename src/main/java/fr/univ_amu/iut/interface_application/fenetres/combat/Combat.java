@@ -18,7 +18,7 @@ public abstract class Combat extends BorderPane {
     private Label texteDeExplication = new Label("Cliquez sur le champion que vous voulez utiliser pour le combat");
     private HBox conteneurDesBoutonsChampion = new HBox();
     private ArrayList<BoutonChampion> boutonsChampions = new ArrayList<>(5);
-    private BoutonChampion boutonChampionChoisiAuCombat;
+    private BoutonChampion boutonChampionChoisiAuCombat = new BoutonChampion();
     private Button combat = new Button("Se battre ! ");
     public Combat(Joueur joueur){
         super();
@@ -49,21 +49,27 @@ public abstract class Combat extends BorderPane {
                 @Override
                 public void handle(ActionEvent e) {
                     //Choisir ce champion pour aller au combat
-                    boutonChampionChoisiAuCombat = ( (BoutonChampion) (e.getSource()) );
+                    boutonChampionChoisiAuCombat.setEntite( ( (BoutonChampion) (e.getSource()) ).getEntite() );
+                    boutonChampionChoisiAuCombat.setIndiceBouton( ( (BoutonChampion) (e.getSource()) ).getIndiceBouton() );
                     Combat.super.setCenter( boutonChampionChoisiAuCombat );
                     Combat.super.setLeft(combat);
+                    // a voir
                 }
             });
             conteneurDesBoutonsChampion.getChildren().add(boutonsChampions.get(i)); // ajouter le bouton à la hbox
         }
     }
     public void verifieSiChampionVivant(){
+        Combat.super.setCenter(null);
+        Combat.super.setLeft(null);
         if( boutonChampionChoisiAuCombat.getEntite().getPointsVie() == 0){
             conteneurDesBoutonsChampion.getChildren().remove(boutonChampionChoisiAuCombat.getIndiceBouton());
+            boutonsChampions.remove( boutonChampionChoisiAuCombat.getIndiceBouton() );
             return;
         }
-        conteneurDesBoutonsChampion.getChildren().set(boutonChampionChoisiAuCombat.getIndiceBouton(),
-                boutonChampionChoisiAuCombat);
+        boutonsChampions.get( boutonChampionChoisiAuCombat.getIndiceBouton() ).setEntite(boutonChampionChoisiAuCombat.getEntite() );
+        conteneurDesBoutonsChampion.getChildren().clear();
+        initBoutonsChampions();
     }
 
     public abstract void combat();

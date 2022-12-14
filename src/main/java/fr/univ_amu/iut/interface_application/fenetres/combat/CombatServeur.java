@@ -16,7 +16,15 @@ public class CombatServeur extends Combat{
     @Override
     public void combat() {
         //Attendre que le client aie envoyé son champion
-        // recois entite
+        System.out.println(serveur.estEntitesRecuesVide());
+        while (true){
+            try {
+                Thread.sleep(300);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            if(!serveur.estEntitesRecuesVide()){break;}
+        }
         Entite entiteAdversaire = serveur.getBufferRecu();
 
         //Combat entre les 2
