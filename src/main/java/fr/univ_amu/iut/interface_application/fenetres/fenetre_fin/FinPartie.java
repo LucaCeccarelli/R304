@@ -7,6 +7,7 @@ public class FinPartie extends BorderPane {
     private String texte ;
     public FinPartie(String texte){
         super();
+        super.setId("finDePartie");
         this.texte = texte;
         messageFinPartie();
     }
