@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="beca995f-0c82-40d1-b838-e21cc535941e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/univ_amu/iut/interface_application/fenetres/fenetre_fin/FinPartie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/univ_amu/iut/interface_application/fenetres/fenetre_fin/FinPartie.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/arrierePlanCombat.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/arrierePlanCombat.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/arrierePlanMagasin.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/arrierePlanMagasin.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

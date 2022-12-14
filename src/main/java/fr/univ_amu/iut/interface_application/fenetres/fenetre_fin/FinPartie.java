@@ -6,10 +6,10 @@ import javafx.scene.layout.BorderPane;
 public class FinPartie extends BorderPane {
     public FinPartie(){
         super();
+        super.setId("finDePartie");
         victoire();
     }
 
     public void victoire(){
-        super.setCenter(new Label("Victoire"));
     }
 }
