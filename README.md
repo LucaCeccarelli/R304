@@ -72,41 +72,44 @@ Le perdant a un écran de défaite.
 
 ## Besoins fonctionnels/non-fonctionnels
 ### Besoins fonctionnels
-- En tant que client, je veux que l'application utilise des classes abstraites pour répondre à mes exigences techniques.
 
-- En tant que client, je veux que l'application utilise des interfaces pour répondre à mes exigences techniques.
+- En tant que client, je souhaite que l'application utilise des classes abstraites afin de fournir des méthodes et des champs communs à plusieurs classes qui en héritent.
 
-- En tant que client, je veux que l'application utilise des itérateurs pour répondre à mes exigences techniques.
+- En tant que client, je souhaite  que l'application utilise des interfaces afin de permettre aux classes de déclarer les méthodes qu'elles implémentent pour rendre le code plus modulaire.
 
-- En tant que client, je veux que l'application utilise des collections pour répondre à mes exigences techniques.
+- En tant que client, je souhaite  que l'application utilise des itérateurs afin de parcourir et de manipuler les éléments d'une collection de données de manière organisée, sans avoir à connaître les détails de l'implémentation de la collection elle-même.
 
-- En tant que client, je veux que l'application utilise des exceptions pour répondre à mes exigences techniques.
+- En tant que client, je souhaite que l'application utilise des collections afin de gérer des structures de données organisées et des fonctionnalités de manipulation de données, ce qui peut être utile pour stocker, accéder et manipuler des ensembles de données.
 
-- En tant que client, je veux que l'application utilise des threads pour répondre à mes exigences techniques.
+- En tant que client, je souhaite  que l'application utilise des exceptions personnalisées afin de gérer des erreurs et des situations d'exception de manière plus organisée et contrôlée.
 
-- En tant que client, je veux que l'application utilise de la généricité pour répondre à mes exigences techniques.
+- En tant que client, je souhaite  que l'application utilise des threads afin d'exécuter des parties du programme de manière concurrente.
+
+- En tant que client, je souhaite  que l'application utilise de la généricité afin de créer des classes, des interfaces et des méthodes qui peuvent être utilisées avec différents types de données.
 
 ### Besoins non-fonctionnels
 
-- En tant que joueur, je veux héberger une partie pour jouer avec mes amis.
+- En tant que joueur, je souhaite que l'application puisse être utilisée à deux afin de pouvoir jouer avec un ami.
 
-- En tant que joueur, je veux rejoindre une partie pour rejoindre mes amis.
+- En tant que joueur, je souhaite héberger une partie afin de permettre à mon adversaire de la rejoindre.
 
-- En tant que joueur, je veux acheter des personnages pour construire mon équipe.
+- En tant que joueur, je souhaite rejoindre une partie créée afin de démarrer la partie contre l'adversaire qui héberge.
 
-- En tant que joueur, je veux choisir un personnage pour attaquer mon adversaire.
+- En tant que joueur, je souhaite pouvoir acheter des entitées afin de construire mon équipe.
 
-- En tant que joueur, je veux avoir une interface pour les personnages afin de jouer plus facilement.
+- En tant que joueur, je souhaite pouvoir mener un combat contre les entitées de mon adversaire afin de déterminer un vainqueur.
 
-- En tant que joueur, je veux avoir des personnages de différents types pour avoir de la diversité dans mon équipe.
+- En tant que joueur, je souhaite avoir une interface pour les personnages afin pouvoir de jouer plus facilement.
 
-- En tant que joueur, je veux que les personnages aient des stats différentes pour que certains soient plus forts que d'autres.
+- En tant que joueur, je souhaite avoir des personnages de différents types afin d'avoir un renouvellement de mon équipe sur plusieurs parties.
 
-- En tant que joueur, je veux que les personnages aient des raretés différentes pour que les personnages aient des taux de drop différents.
+- En tant que joueur, je souhaite que les personnages aient des statistiques différentes afin que certains soient plus forts que d'autres.
 
-- En tant que joueur, je veux un magasin aléatoire pour que chaque partie soit différente.
+- En tant que joueur, je souhaite que les personnages soient identifiés par des raretés différentes afin que les personnages aient des taux de drop différents.
 
-- En tant que joueur débutant, je veux une légende pour la rareté afin de savoir ce qui est le plus rare.
+- En tant que joueur, je souhaite un magasin aléatoire afin que chaque partie soit différente.
+
+- En tant que joueur débutant, je souhaite une légende afin de pouvoir déterminer la rareté des entitées.
 
 ### Diagramme de cas d'utilisation
 
