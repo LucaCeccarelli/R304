@@ -2,21 +2,32 @@ package fr.univ_amu.iut;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import fr.univ_amu.iut.backend.entites.*;
+import fr.univ_amu.iut.backend.entites.Assassin;
+import fr.univ_amu.iut.backend.entites.Rarete;
+import fr.univ_amu.iut.backend.magasin.ApprovisionnementMagasin;
+import fr.univ_amu.iut.backend.magasin.InitListeChampionsExistants;
+import fr.univ_amu.iut.backend.outils.FonctionAleatoire;
+import fr.univ_amu.iut.backend.outils.Paquet;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import fr.univ_amu.iut.backend.magasin.ApprovisionnementMagasin;
-import fr.univ_amu.iut.backend.outils.Paquet;
+class TestApprovisionnementMagasin {
+    private static Paquet paquetTest;
+    private static Assassin entiteTest;
 
-public class TestApprovisionnementMagasin {
-
-    @Test
-    void testAjouterALaListeDesChampionsExistants() {
-        Yordle champion = new Yordle("Fred", 80, 10, 10, Rarete.LEGENDAIRE);
-        ApprovisionnementMagasin.ajouterALaListeDesChampionsExistants(champion);
-        assertTrue(ApprovisionnementMagasin.listeChampionsExistants.contains(champion));
+    @BeforeEach
+    void setUp() {
+        InitListeChampionsExistants.InitListe();
+        FonctionAleatoire.random.setSeed(0);
+        paquetTest = new Paquet();
+        entiteTest = new Assassin("Fred", 80, 60, 40, Rarete.LEGENDAIRE);
     }
 
+    @Test
+    void testListeChampionsExistants() {
+        ApprovisionnementMagasin.ajouterALaListeDesChampionsExistants(entiteTest);
+        assertTrue(ApprovisionnementMagasin.listeChampionsExistants.contains(entiteTest));
+    }
 
     @Test
     void testGetListeCommun() {
@@ -38,4 +49,5 @@ public class TestApprovisionnementMagasin {
         Paquet result = ApprovisionnementMagasin.getListeLegendaire();
         assertEquals(expectedResult, result);
     }
+
 }
