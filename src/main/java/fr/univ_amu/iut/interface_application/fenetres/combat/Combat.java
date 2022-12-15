@@ -7,6 +7,7 @@ import fr.univ_amu.iut.interface_application.fenetres.outils.BoutonChampion;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 
@@ -22,12 +23,22 @@ public abstract class Combat extends BorderPane {
     private HBox conteneurDesBoutonsChampion = new HBox();
     /** Conteneur contenant le bouton du champion choisi pour le combat */
     private HBox conteneurCombattant = new HBox();
+
     /** Liste des boutons des champions du joueur */
     private ArrayList<BoutonChampion> boutonsChampions = new ArrayList<>(5);
     /** Bouton du champion choisi pour le combat */
     private BoutonChampion boutonChampionChoisiAuCombat = new BoutonChampion();
     /** Bouton qui permet de lancer le combat */
     private Button combat = new Button("Se battre ! ");
+
+    /** Label permettant l'affichage des statistiques de la partie */
+    private Label statistiquesAttaque = new Label();
+
+    /** Entier qui stocke les PV du champion avant l'attaque de l'adversaire */
+    private int PVChampionAvantTour;
+
+    /** Entier qui stocke les PV du champion après l'attaque de l'adversaire */
+    private int PVChampionApresTour;
 
     /**
      * Constructeur de Combat
@@ -62,7 +73,7 @@ public abstract class Combat extends BorderPane {
                 combat();
                 //Recharger Affichage
                 conteneurCombattant.getChildren().clear();
-                Combat.super.setCenter(null);
+                afficherDegats();
             }
         });
     }
@@ -79,6 +90,7 @@ public abstract class Combat extends BorderPane {
                     //Choisir ce champion pour aller au combat
                     boutonChampionChoisiAuCombat.setEntite( ( (BoutonChampion) (e.getSource()) ).getEntite() );
                     boutonChampionChoisiAuCombat.setIndiceBouton( ( (BoutonChampion) (e.getSource()) ).getIndiceBouton() );
+                    PVChampionAvantTour = boutonChampionChoisiAuCombat.getEntite().getPointsVie();
                     conteneurCombattant.getChildren().clear();
                     conteneurCombattant.getChildren().addAll(boutonChampionChoisiAuCombat, combat);
                     Combat.super.setCenter(conteneurCombattant);
@@ -92,6 +104,7 @@ public abstract class Combat extends BorderPane {
      * Methode qui vérifie si le champion choisi est vivant
      */
     public void verifieSiChampionVivant(){
+        PVChampionApresTour = boutonChampionChoisiAuCombat.getEntite().getPointsVie();
         if( boutonChampionChoisiAuCombat.getEntite().getPointsVie() == 0){
             conteneurDesBoutonsChampion.getChildren().get(boutonChampionChoisiAuCombat.getIndiceBouton()).setVisible(false);
             return;
@@ -133,5 +146,18 @@ public abstract class Combat extends BorderPane {
             }
         }
         return counter == joueur.getPaquet().size();
+    }
+
+    /**
+     * Methode qui permet le calcul et l'affichage des dégats causés à l'entité
+     */
+    public void afficherDegats(){
+        int PVPerdus;
+        PVPerdus = PVChampionAvantTour-PVChampionApresTour;
+        if (PVPerdus <= 0){
+            PVPerdus = PVChampionAvantTour;
+        }
+        statistiquesAttaque.setText(getBoutonChampionChoisiAuCombat().getEntite().getNom() + " a perdu " + PVPerdus + " PV");
+        Combat.super.setCenter(statistiquesAttaque);
     }
 }

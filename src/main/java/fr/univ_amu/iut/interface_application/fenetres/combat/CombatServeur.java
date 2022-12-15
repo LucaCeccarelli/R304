@@ -5,12 +5,21 @@ import fr.univ_amu.iut.backend.joueur.Joueur;
 import fr.univ_amu.iut.backend.outils.multijoueur.serveur.Serveur;
 import fr.univ_amu.iut.interface_application.fenetres.connexion.Heberger;
 import fr.univ_amu.iut.interface_application.fenetres.fenetre_fin.FinPartie;
+import javafx.scene.control.Label;
 
 /**
  * Classe pour le combat lorsque le serveur est hébergé.
  */
 public class CombatServeur extends Combat {
     Serveur serveur;
+
+    private Label statistiquesAttaque = new Label();
+
+    private int PVChampionAvantTour;
+
+    private int PVChampionApresTour;
+
+    private int PVPerdus;
 
     /**
      * Constructeur de la classe CombatServeur
@@ -29,6 +38,7 @@ public class CombatServeur extends Combat {
     @Override
     public void combat() {
         serveur.envoyer(super.getBoutonChampionChoisiAuCombat().getEntite());
+        PVChampionAvantTour = super.getBoutonChampionChoisiAuCombat().getEntite().getPointsVie();
         while (true){
             try {
                 Thread.sleep(300);
@@ -40,7 +50,11 @@ public class CombatServeur extends Combat {
         Entite entiteAdversaire = serveur.getBufferRecu();
 
         entiteAdversaire.attaquer(super.getBoutonChampionChoisiAuCombat().getEntite());
-
+        PVChampionApresTour = super.getBoutonChampionChoisiAuCombat().getEntite().getPointsVie();
+        PVPerdus = PVChampionAvantTour-PVChampionApresTour;
+        statistiquesAttaque.setText(super.getBoutonChampionChoisiAuCombat().getEntite().getNom() + " a perdu " + PVPerdus + " PV");
+        statistiquesAttaque.setStyle("-fx-font-size: 30;-fx-text-fill: black");
+        super.setCenter(statistiquesAttaque);
         super.verifieSiChampionVivant();
         asPerdu();
         asGagne();
