@@ -3,7 +3,7 @@ package fr.univ_amu.iut.interface_application.fenetres.magasin;
 import fr.univ_amu.iut.backend.joueur.Joueur;
 import fr.univ_amu.iut.backend.magasin.InitListeChampionsExistants;
 import fr.univ_amu.iut.backend.magasin.Magasin;
-import fr.univ_amu.iut.backend.magasin.NomEntiteNonPresentDansMagasinException;
+import fr.univ_amu.iut.backend.magasin.exceptions.NomEntiteNonPresentDansMagasinException;
 import fr.univ_amu.iut.interface_application.fenetres.combat.CombatClient;
 import fr.univ_amu.iut.interface_application.fenetres.combat.CombatServeur;
 import fr.univ_amu.iut.interface_application.fenetres.connexion.Heberger;
@@ -60,7 +60,7 @@ public class FenetreMagasin extends BorderPane {
                         joueur.ajouterAuPaquet(magasin.achat(((BoutonChampion)e.getSource()).getEntite().getNom()));
                         diminuerNbAchats();
                     } catch (NomEntiteNonPresentDansMagasinException ex) {
-                        throw new RuntimeException(ex);
+                        System.out.println("Nom de l'entite chosie non valide");
                     }
 
                     verifierTaillePaquet();

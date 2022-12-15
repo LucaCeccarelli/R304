@@ -12,10 +12,6 @@ public class BoutonChampion extends Button {
         setEntite(entite);
         this.indiceBouton = indiceBouton;
     }
-    public BoutonChampion(Entite entite){
-        super();
-        setEntite(entite);
-    }
 
     public BoutonChampion(){
         super();

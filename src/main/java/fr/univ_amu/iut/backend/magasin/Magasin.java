@@ -1,6 +1,7 @@
 package fr.univ_amu.iut.backend.magasin;
 
 import fr.univ_amu.iut.backend.entites.Entite;
+import fr.univ_amu.iut.backend.magasin.exceptions.NomEntiteNonPresentDansMagasinException;
 import fr.univ_amu.iut.backend.outils.Paquet;
 
 import java.util.ArrayList;

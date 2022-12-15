@@ -20,7 +20,7 @@ public class Heberger extends BorderPane {
     private Label IPLocale = new Label();
     private VBox texteAttenteIPLocale = new VBox();
     public static Serveur serveur;
-    public Heberger() throws UnknownHostException {
+    public Heberger() {
         super();
         super.setId("arrierePlan_heberger");
         initialisationBoutons();
@@ -49,15 +49,21 @@ public class Heberger extends BorderPane {
                     }
                 });
                 NotifierConnexion notifierConnexion = new NotifierConnexion(Heberger.super.getScene());
-                serveur.addObserver(notifierConnexion);
+                serveur.ajoutObserver(notifierConnexion);
                 receive.start();
             }
         });
     }
 
-    public void initialisationTexteEtIp() throws UnknownHostException {
+    public void initialisationTexteEtIp()  {
         texteAttenteIPLocale.setId("conteneurIPTexteHeberger");
-        IPLocale.setText("Votre adresse IP est : " + recupererIpLocale().toString().substring(1));
+
+        try {
+            IPLocale.setText("Votre adresse IP est : " + recupererIpLocale().toString().substring(1));
+        } catch (UnknownHostException e) {
+            System.out.println("Impossible de recuperer votre adresse IP");;
+        }
+
         texteAttenteIPLocale.getChildren().addAll(texteDeAttente, IPLocale);
     }
 

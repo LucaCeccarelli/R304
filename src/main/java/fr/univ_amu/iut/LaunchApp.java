@@ -11,7 +11,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
-import java.net.UnknownHostException;
 
 public class LaunchApp extends Application {
     private BorderPane racine = new BorderPane();
@@ -39,7 +38,6 @@ public class LaunchApp extends Application {
         rejoindre.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                //Stuff
                 scene.setRoot(new Rejoindre());
             }
         });
@@ -47,12 +45,7 @@ public class LaunchApp extends Application {
         heberger.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                //Stuff
-                try {
-                    scene.setRoot(new Heberger());
-                } catch (UnknownHostException ex) {
-                    throw new RuntimeException(ex);
-                }
+                scene.setRoot(new Heberger());
             }
         });
     }

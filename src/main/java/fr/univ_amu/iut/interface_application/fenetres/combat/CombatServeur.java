@@ -16,8 +16,6 @@ public class CombatServeur extends Combat{
 
     @Override
     public void combat() {
-        //Attendre que le client aie envoyé son champion
-        System.out.println(serveur.estEntitesRecuesVide());
         serveur.envoyer(super.getBoutonChampionChoisiAuCombat().getEntite());
         while (true){
             try {
@@ -31,12 +29,9 @@ public class CombatServeur extends Combat{
 
         entiteAdversaire.attaquer(super.getBoutonChampionChoisiAuCombat().getEntite());
 
-        //Verifie si champion au combat tjr vivant
         super.verifieSiChampionVivant();
-        //TODO : Separer de combat
         asPerdu();
         asGagne();
-        //Verifier
     }
 
     public void asPerdu(){

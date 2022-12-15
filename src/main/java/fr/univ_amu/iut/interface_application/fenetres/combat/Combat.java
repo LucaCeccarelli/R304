@@ -1,20 +1,16 @@
 package fr.univ_amu.iut.interface_application.fenetres.combat;
 
-import fr.univ_amu.iut.backend.entites.Entite;
 import fr.univ_amu.iut.backend.joueur.Joueur;
-import fr.univ_amu.iut.backend.magasin.Magasin;
 import fr.univ_amu.iut.backend.partie.Partie;
 import fr.univ_amu.iut.interface_application.fenetres.fenetre_fin.FinPartie;
 import fr.univ_amu.iut.interface_application.fenetres.magasin.BoutonChampion;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public abstract class Combat extends BorderPane {
     public Joueur joueur;
@@ -32,8 +28,6 @@ public abstract class Combat extends BorderPane {
         initBoutonCombat();
         initBoutonsChampions();
         super.setBottom(conteneurDesBoutonsChampion);
-
-        //Si plus de vie faire disparraitre de l'ecran
     }
     private void initId(){
         conteneurDesBoutonsChampion.setId("conteneurChampions");
@@ -64,7 +58,6 @@ public abstract class Combat extends BorderPane {
                     conteneurCombattant.getChildren().clear();
                     conteneurCombattant.getChildren().addAll(boutonChampionChoisiAuCombat, combat);
                     Combat.super.setCenter(conteneurCombattant);
-                    // a voir
                 }
             });
             conteneurDesBoutonsChampion.getChildren().add(boutonsChampions.get(i)); // ajouter le bouton à la hbox
@@ -93,12 +86,10 @@ public abstract class Combat extends BorderPane {
     public boolean verifieSiTousLesChampionsSontMorts(){
         int counter = 0;
         for (BoutonChampion champion: boutonsChampions) {
-            System.out.println(champion.getEntite());
             if(champion.getEntite().getPointsVie() == 0){
                 counter+=1;
             }
         }
-        System.out.println(counter);
         return counter == joueur.getPaquet().size();
     }
 }

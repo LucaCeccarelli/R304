@@ -12,28 +12,24 @@ import java.util.ArrayList;
 public class Serveur extends SocketEchange implements Observable {
     private ServerSocket server;
 
-    /*
-    fonction pour l'Observateur
-     */
     private ArrayList<Observer> observers = new ArrayList<Observer>();
 
     @Override
-    public void addObserver(Observer obj) {
+    public void ajoutObserver(Observer obj) {
         observers.add(obj);
     }
 
     @Override
-    public void removeObserver(Observer obj) {
+    public void effacerObserver(Observer obj) {
         observers.remove(obj);
     }
 
     @Override
-    public void notifyObserver() {
+    public void notifierObserver() {
         for (Observer obj : observers) {
-            obj.update(this);
+            obj.mettreAJour(this);
         }
     }
-    // fin observer
 
     public Serveur(int port) {
         super(port);
@@ -44,7 +40,7 @@ public class Serveur extends SocketEchange implements Observable {
             server = new ServerSocket(super.port);
             System.out.println("Serveur de jeu lancé sur le port : " + port);
             Socket client = server.accept();
-            notifyObserver();
+            notifierObserver();
             oout = new ObjectOutputStream(client.getOutputStream());
             oin = new ObjectInputStream(client.getInputStream());
 

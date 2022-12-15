@@ -1,24 +1,23 @@
 package fr.univ_amu.iut.backend.entites;
 
 import fr.univ_amu.iut.backend.entites.exceptions.ValeursPersonnagesInvalides;
-import fr.univ_amu.iut.backend.outils.observateur.Observable;
-import fr.univ_amu.iut.backend.outils.observateur.Observer;
 import fr.univ_amu.iut.backend.outils.FonctionAleatoire;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 public abstract class Entite implements Serializable {
-
-    private final static int POINTS_DE_DEFENSE_MIN = 0;
-    private final static int POINTS_DE_DEFENSE_MAX = 100;
+    protected final int POINTS_DE_DEFENSE_MIN = 0;
+    private final int POINTS_DE_DEFENSE_MAX = 100;
+    private final int POINTS_DE_ATTAQUE_MIN = 10;
+    private final int POINTS_DE_ATTAQUE_MAX = 100;
+    private final int POINTS_DE_VIE_MIN = 0;
+    private final int POINTS_DE_VIE_MAX = 100;
     private Rarete rarete;
     private String nom;
     private int pointsAttaque ;
     private int pointsDefense;
     private int pointsVie;
     private String type;
-
 
     public Entite(String nom, int pointsAttaque, int pointsVie, int pointsDefense, Rarete rarete){
         this.setPointsAttaque(pointsAttaque);
@@ -36,20 +35,18 @@ public abstract class Entite implements Serializable {
         return nom;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
     public int getPointsAttaque() {
         return pointsAttaque;
     }
 
     public void setPointsAttaque(int pointsAttaque) {
-        if (pointsAttaque >= 0 && pointsAttaque <= 100) {
-            this.pointsAttaque = pointsAttaque;
-        } else {
-            throw new IllegalArgumentException("Points d'attaque non valides (1-100)");
+        if (pointsAttaque < getMinAtt() || pointsAttaque > getMaxAtt()) {
+            throw ValeursPersonnagesInvalides.pointsAttaqueNonValides(
+                    getMinAtt(),
+                    getMaxAtt(),
+                    pointsAttaque);
         }
+        this.pointsAttaque = pointsAttaque;
     }
 
 
@@ -59,10 +56,10 @@ public abstract class Entite implements Serializable {
     }
 
     public void setPointsDefense(int pointsDefense) {
-        if (pointsDefense < POINTS_DE_DEFENSE_MIN || pointsDefense > POINTS_DE_DEFENSE_MAX) {
+        if (pointsDefense < getMinDef() || pointsDefense > getMaxDef()) {
             throw ValeursPersonnagesInvalides.pointsDefenseNonValides(
-                    POINTS_DE_DEFENSE_MIN,
-                    POINTS_DE_DEFENSE_MAX,
+                    getMinDef(),
+                    getMaxDef(),
                     pointsDefense);
         }
         this.pointsDefense = pointsDefense;
@@ -74,11 +71,13 @@ public abstract class Entite implements Serializable {
     }
 
     public void setPointsVie(int pointsVie) {
-        if (pointsVie >= 0 && pointsVie <= 100) {
-            this.pointsVie = pointsVie;
-        } else {
-            throw new IllegalArgumentException("Points de vie non valides (1-100)");
+        if (pointsDefense < getMinVie() || pointsDefense > getMaxVie()) {
+            throw ValeursPersonnagesInvalides.pointsDefenseNonValides(
+                    getMinVie(),
+                    getMaxVie(),
+                    pointsVie);
         }
+        this.pointsVie = pointsVie;
     }
 
 
@@ -95,27 +94,27 @@ public abstract class Entite implements Serializable {
 
     public void attaquer(Entite adversaire) {
         int attaque;
-        //System.out.println(this.getNom() + " attaque " + adversaire.getNom() + "!");
         attaque = (int) (this.pointsAttaque*(1.01-(adversaire.getPointsDefense()/100)));
-        //System.out.println(attaque);
         attaque = (int) (attaque*FonctionAleatoire.random.nextDouble(0.5, 1));
-        if (attaque >= 30) {
-            //System.out.println("Coup critique");
-        } else if (attaque < 30 && attaque >= 10){
-            //System.out.println("Coup moyen");
-        } else {
-            //System.out.println("Coup faible");
-        }
         if (adversaire.getPointsVie() <= attaque){
-            //System.out.println(adversaire.getNom() + " a péris");
             adversaire.setPointsVie(0);
         } else {
             adversaire.setPointsVie(adversaire.getPointsVie()-attaque);
         }
-        //System.out.println("L'attaque a engendré une perte de " + attaque + " PV");
-        //System.out.println("L'entitée attaquée a : " + adversaire.getPointsVie() + " points de vie");
     }
-
-    public abstract void competence();
     public abstract String getType();
+    protected int getMinDef(){
+        return POINTS_DE_DEFENSE_MIN;
+    }
+    protected int getMaxDef(){
+        return POINTS_DE_DEFENSE_MAX;
+    }
+    protected int getMinAtt(){return POINTS_DE_ATTAQUE_MIN;}
+    protected int getMaxAtt(){return POINTS_DE_ATTAQUE_MAX;}
+    protected int getMinVie(){
+        return POINTS_DE_VIE_MIN;
+    }
+    protected int getMaxVie(){
+        return POINTS_DE_VIE_MAX;
+    }
 }

@@ -29,7 +29,7 @@ public class CombatClient extends Combat {
 
         entiteAdversaire.attaquer(super.getBoutonChampionChoisiAuCombat().getEntite());
         super.verifieSiChampionVivant();
-        //TODO : Separer de combat
+
         asPerdu();
         asGagne();
     }
