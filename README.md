@@ -67,6 +67,10 @@ Une fois la partie terminée, le gagnant a un écran de victoire.
 
 ![Image page victoire de l'application](imagesReadme/victoire.png "Page victoire")
 
+Le perdant a un écran de défaite.
+
+![Image page défaite de l'application](imagesReadme/defaite.png "Page defaite")
+
 ## Besoins fonctionnels/non-fonctionnels
 ### Besoins fonctionnels
 - En tant que client, je veux que l'application utilise des classes abstraites pour répondre à mes exigences techniques.
