@@ -1,5 +1,8 @@
 package fr.univ_amu.iut.backend.entites.exceptions;
 
+/**
+ * Classe ValeursPersonnagesInvalides qui étend la classe IllegalArgumentException et qui permet de gérer les exceptions liées aux valeurs des personnages (points de vie, attaque, défense).
+ */
 public class ValeursPersonnagesInvalides extends IllegalArgumentException{
     public ValeursPersonnagesInvalides(String messageErreur){
         super(messageErreur);

@@ -33,7 +33,7 @@ set APP_HOME=%DIRNAME%..
 for %%i in ("%APP_HOME%") do set APP_HOME=%%~fi
 
 @rem Add default JVM options here. You can also use JAVA_OPTS and R3_04_PROJET_OPTS to pass JVM options to this script.
-set DEFAULT_JVM_OPTS="--module-path" "%APP_HOME%\lib" "--module" "fr.univ_amu.iut/fr.univ_amu.iut.LaunchApp"
+set DEFAULT_JVM_OPTS="--module-path" "%APP_HOME%\lib" "--module" "fr.univ_amu.iut/fr.univ_amu.iut.LancerApp"
 
 @rem Find java.exe
 if defined JAVA_HOME goto findJavaFromJavaHome

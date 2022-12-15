@@ -13,6 +13,9 @@ import java.io.IOException;
 import java.net.*;
 import java.util.Enumeration;
 
+/**
+ * Classe Heberger qui permet de creer un serveur pour heberger une partie de jeu
+ */
 public class Heberger extends BorderPane {
     private Button heberger = new Button("Cliquez ici pour heberger la partie");
     private Label texteDeAttente = new Label("En attente que un autre joueur vous rejoigne ...");
@@ -20,6 +23,10 @@ public class Heberger extends BorderPane {
     private Label IPLocale = new Label();
     private VBox texteAttenteIPLocale = new VBox();
     public static Serveur serveur;
+
+    /**
+     * Constructeur de la classe Heberger
+     */
     public Heberger() {
         super();
         super.setId("arrierePlan_heberger");
@@ -28,6 +35,9 @@ public class Heberger extends BorderPane {
         initialisationTexteEtIp();
     }
 
+    /**
+     * Methode qui initialise les boutons
+     */
     private void initialisationBoutons(){
         heberger.getStyleClass().add("bouton_management");
         heberger.setOnAction(new EventHandler<ActionEvent>() {
@@ -55,6 +65,9 @@ public class Heberger extends BorderPane {
         });
     }
 
+    /**
+     * Methode qui initialise le texte et l'adresse IP locale
+     */
     public void initialisationTexteEtIp()  {
         texteAttenteIPLocale.setId("conteneurIPTexteHeberger");
 
@@ -67,6 +80,11 @@ public class Heberger extends BorderPane {
         texteAttenteIPLocale.getChildren().addAll(texteDeAttente, IPLocale);
     }
 
+    /**
+     * Methode qui permet de recuperer l'adresse IP locale
+     * @return l'adresse IP locale
+     * @throws UnknownHostException
+     */
     public InetAddress recupererIpLocale() throws UnknownHostException {
         try {
             for (Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces(); interfaces.hasMoreElements();) {
@@ -90,6 +108,10 @@ public class Heberger extends BorderPane {
         return InetAddress.getLocalHost();
     }
 
+    /**
+     * Methode qui permet de recuperer le serveur
+     * @return le serveur
+     */
     public static Serveur getServeur() {
         return serveur;
     }

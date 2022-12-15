@@ -6,14 +6,26 @@ import fr.univ_amu.iut.backend.outils.multijoueur.serveur.Serveur;
 import fr.univ_amu.iut.interface_application.fenetres.connexion.Heberger;
 import fr.univ_amu.iut.interface_application.fenetres.fenetre_fin.FinPartie;
 
-public class CombatServeur extends Combat{
+/**
+ * Classe pour le combat lorsque le serveur est hébergé.
+ */
+public class CombatServeur extends Combat {
     Serveur serveur;
+
+    /**
+     * Constructeur de la classe CombatServeur
+     *
+     * @param joueur Le joueur qui joue le combat
+     */
     public CombatServeur(Joueur joueur) {
         super(joueur);
         serveur = Heberger.getServeur();
         serveur.ecouter();
     }
 
+    /**
+     * Déroulement du combat
+     */
     @Override
     public void combat() {
         serveur.envoyer(super.getBoutonChampionChoisiAuCombat().getEntite());
@@ -34,6 +46,9 @@ public class CombatServeur extends Combat{
         asGagne();
     }
 
+    /**
+     * Vérifie si le joueur a perdu le combat
+     */
     public void asPerdu(){
         if(super.verifieSiTousLesChampionsSontMorts()){
             System.out.println("Tu as Perdu");
