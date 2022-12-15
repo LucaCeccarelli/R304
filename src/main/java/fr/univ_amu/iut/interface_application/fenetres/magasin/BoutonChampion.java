@@ -24,7 +24,9 @@ public class BoutonChampion extends Button {
     private void initBouton(){
         super.setText("Nom : "+entite.getNom()+"\n"
                 +"Type :"+entite.getType()+"\n"
-                +"Vie :"+entite.getPointsVie()+"\n" );
+                +"Vie :"+entite.getPointsVie()+"\n"
+                +"Attaque :"+entite.getPointsAttaque()+"\n"
+                +"Défense :"+ entite.getPointsDefense()+"\n");
         switch (entite.getRarete()){
             case COMMUN -> super.setStyle("-fx-background-color: #7ed957");
             case RARE -> super.setStyle("-fx-background-color: #8c52ff");
