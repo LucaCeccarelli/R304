@@ -1,17 +1,17 @@
 package fr.univ_amu.iut.backend.entites;
 
-public class Mage extends Entite {
-    protected final int POINTS_DE_DEFENSE_MIN = 20;
-    private final int POINTS_DE_DEFENSE_MAX = 80;
-    private final int POINTS_DE_ATTAQUE_MAX = 120;
-    private final int POINTS_DE_VIE_MAX = 200;
+public class Combattant extends Entite {
 
-    public Mage(String nom, int pointsAttaque, int pointsVie, int pointsDefense, Rarete rarete) {
+    protected final int POINTS_DE_DEFENSE_MIN = 100;
+    private final int POINTS_DE_DEFENSE_MAX = 150;
+    private final int POINTS_DE_ATTAQUE_MAX = 150;
+    private final int POINTS_DE_VIE_MAX = 75;
+    public Combattant(String nom, int pointsAttaque, int pointsVie, int pointsDefense, Rarete rarete) {
         super(nom, pointsAttaque, pointsVie, pointsDefense, rarete);
     }
     @Override
     public String toString() {
-        return "Mage{rarete=" + getRarete() + ", nom=" + getNom()
+        return "Combattant{rarete=" + getRarete() + ", nom=" + getNom()
                 + ", pointsAttaque=" + getPointsAttaque()
                 + ", pointsDefense=" + getPointsDefense()
                 + ", pointsVie=" + getPointsVie()
@@ -20,7 +20,7 @@ public class Mage extends Entite {
 
     @Override
     public String getType(){
-        return "Mage";
+        return "Combattant";
     }
     @Override
     protected int getMinDef(){

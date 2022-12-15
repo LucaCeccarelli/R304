@@ -13,7 +13,7 @@ public class NotifierConnexion implements Observer {
     }
 
     @Override
-    public void update(Observable observable) {
+    public void mettreAJour(Observable observable) {
         System.out.println("Un client s'est connecté");
         scene.setRoot(new FenetreMagasin());
     }

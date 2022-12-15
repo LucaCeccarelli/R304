@@ -31,8 +31,6 @@ public class Rejoindre extends BorderPane {
         rejoindre.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                //Stuff
-                
                 client = new Client(entreeDeTexte.getText(),10013);
 
                 try {
@@ -41,7 +39,6 @@ public class Rejoindre extends BorderPane {
                 } catch (IOException ex) {
                     entreeDeTexte.setText("");
                     entreeDeTexte.setPromptText("Une erreur c'est produite, essayez à un nouveau");
-                    //throw new RuntimeException(ex);
                 }
             }
         });

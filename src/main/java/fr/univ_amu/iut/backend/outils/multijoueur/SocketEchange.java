@@ -25,7 +25,6 @@ public abstract class SocketEchange {
             oout.flush();
             Thread.sleep(500);
         } catch (IOException | InterruptedException e) {
-            //throw new RuntimeException(e);
             Partie.asGagne = true;
         }
     }
@@ -47,7 +46,7 @@ public abstract class SocketEchange {
                     try {
                         oout.close();
                     } catch (IOException ex) {
-                        throw new RuntimeException(ex);
+                        System.out.println("Vous vous etes deconnectés");
                     }
 
                     e.printStackTrace();
