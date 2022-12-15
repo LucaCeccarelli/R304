@@ -43,11 +43,9 @@ public class Heberger extends BorderPane {
         heberger.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                //Stuff
                 Heberger.super.setCenter(texteAttenteIPLocale);
                 serveur = new Serveur(10013);
-                Thread receive = new Thread(new Runnable() {
-                    String msg;
+                Thread attendre = new Thread(new Runnable() {
 
                     @Override
                     public void run() {
@@ -60,7 +58,7 @@ public class Heberger extends BorderPane {
                 });
                 NotifierConnexion notifierConnexion = new NotifierConnexion(Heberger.super.getScene());
                 serveur.ajoutObserver(notifierConnexion);
-                receive.start();
+                attendre.start();
             }
         });
     }
