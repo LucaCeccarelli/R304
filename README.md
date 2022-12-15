@@ -67,6 +67,58 @@ Une fois la partie terminée, le gagnant a un écran de victoire.
 
 ![Image page victoire de l'application](imagesReadme/victoire.png "Page victoire")
 
+## Besoins fonctionnels/non-fonctionnels
+### Besoins fonctionnels
+- En tant que client, je veux que l'application utilise des classes abstraites pour répondre à mes exigences techniques.
+
+- En tant que client, je veux que l'application utilise des interfaces pour répondre à mes exigences techniques.
+
+- En tant que client, je veux que l'application utilise des itérateurs pour répondre à mes exigences techniques.
+
+- En tant que client, je veux que l'application utilise des collections pour répondre à mes exigences techniques.
+
+- En tant que client, je veux que l'application utilise des exceptions pour répondre à mes exigences techniques.
+
+- En tant que client, je veux que l'application utilise des threads pour répondre à mes exigences techniques.
+
+- En tant que client, je veux que l'application utilise de la généricité pour répondre à mes exigences techniques.
+
+### Besoins non-fonctionnels
+
+- En tant que joueur, je veux héberger une partie pour jouer avec mes amis.
+
+- En tant que joueur, je veux rejoindre une partie pour rejoindre mes amis.
+
+- En tant que joueur, je veux acheter des personnages pour construire mon équipe.
+
+- En tant que joueur, je veux choisir un personnage pour attaquer mon adversaire.
+
+- En tant que joueur, je veux avoir une interface pour les personnages afin de jouer plus facilement.
+
+- En tant que joueur, je veux avoir des personnages de différents types pour avoir de la diversité dans mon équipe.
+
+- En tant que joueur, je veux que les personnages aient des stats différentes pour que certains soient plus forts que d'autres.
+
+- En tant que joueur, je veux que les personnages aient des raretés différentes pour que les personnages aient des taux de drop différents.
+
+- En tant que joueur, je veux un magasin aléatoire pour que chaque partie soit différente.
+
+- En tant que joueur débutant, je veux une légende pour la rareté afin de savoir ce qui est le plus rare.
+
+### Diagramme de cas d'utilisation
+
+![Image diagramme de cas d'utilisation](imagesReadme/diagrammeCasUtilisation.png "Diagramme de cas d'utilisation")
+
+### Écart avec les prévisions
+
+Au départ, nous étions partis sur l'idée de faire un jeu avec intéraction via le terminal. Finalement, nous avons décidé de faire un jeu avec interface graphique afin de le rendre plus interractif. De plus, nous l'avons rendu multijoueur et jouable en LAN pour pouvoir jouer à deux. Un ordinateur fait office de serveur, et l'autre de client.
+
+### Mesures d'amélioration
+
+Pour améliorer notre projet, nous aurions pu créer une classe qui gère toute la partie aléatoire de l'application. Ceci nous aurait permis de la rendre plus testable/propre.
+
+### Diagramme de classes
+
 ## Membres du projet 🧑‍💻
 
 Ceccarelli Luca</br>
