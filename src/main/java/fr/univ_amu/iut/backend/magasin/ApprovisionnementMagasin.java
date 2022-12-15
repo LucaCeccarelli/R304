@@ -13,7 +13,7 @@ public class ApprovisionnementMagasin {
     /**
      * Liste des champions déjà existants
      */
-    private static Paquet listeChampionsExistants = new Paquet();
+    public static Paquet listeChampionsExistants = new Paquet();
     /**
      * Liste des champions communs
      */
@@ -32,7 +32,7 @@ public class ApprovisionnementMagasin {
      *
      * @param entite L'entité à ajouter
      */
-    protected static void ajouterALaListeDesChampionsExistants(Entite entite){
+    public static void ajouterALaListeDesChampionsExistants(Entite entite){
         listeChampionsExistants.add(entite);
     }
 
@@ -41,7 +41,7 @@ public class ApprovisionnementMagasin {
      *
      * @return La liste des champions communs
      */
-    protected static Paquet getListeCommun(){
+    public static Paquet getListeCommun(){
         return listeCommun;
     }
 
@@ -50,7 +50,7 @@ public class ApprovisionnementMagasin {
      *
      * @return La liste des champions rares
      */
-    protected static Paquet getListeRare(){
+    public static Paquet getListeRare(){
         return listeRare;
     }
 
@@ -59,7 +59,7 @@ public class ApprovisionnementMagasin {
      *
      * @return La liste des champions légendaires
      */
-    protected static Paquet getListeLegendaire(){
+    public static Paquet getListeLegendaire(){
         return listeLegendaire;
     }
 
@@ -68,7 +68,7 @@ public class ApprovisionnementMagasin {
      *
      * @return Le paquet contenant les champion du magasin
      */
-    protected static Paquet raffrechirEntitesDansMagasin(){
+    public static Paquet raffrechirEntitesDansMagasin(){
         Paquet magasin = new Paquet(5);
 
         int nbrAlea;
@@ -98,7 +98,7 @@ public class ApprovisionnementMagasin {
     /**
      * Trie les champions existants par rareté
      */
-    protected static void trieRarete(){
+    public static void trieRarete(){
         for (Entite entite: listeChampionsExistants) {
             switch (entite.getRarete()){
                 case RARE -> listeRare.add(entite);
