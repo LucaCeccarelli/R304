@@ -1,6 +1,7 @@
 package fr.univ_amu.iut;
 
 import fr.univ_amu.iut.backend.entites.*;
+import fr.univ_amu.iut.backend.outils.FonctionAleatoire;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -37,29 +38,37 @@ public class TestEntite {
 
     @Test
     public void recuperationPointsDefense(){
-        Yordle s1 = new Yordle("Fred", 80, 10, 10, Rarete.LEGENDAIRE);
+        Assassin s1 = new Assassin("Fred", 80, 10, 40, Rarete.LEGENDAIRE);
         assertEquals(40, s1.getPointsDefense());
     }
 
     @Test
     public void changementPointsDefense(){
-        Yordle s1 = new Yordle("Fred", 80, 10, 10, Rarete.LEGENDAIRE);
-        s1.setPointsDefense(20);
-        assertEquals(20, s1.getPointsDefense());
+        Assassin s1 = new Assassin("Fred", 80, 10, 40, Rarete.LEGENDAIRE);
+        s1.setPointsDefense(50);
+        assertEquals(50, s1.getPointsDefense());
     }
 
     @Test
     public void recuperationPV(){
-        Yordle s1 = new Yordle("Fred", 80, 10, 10, Rarete.LEGENDAIRE);
-        assertEquals(20, s1.getPointsVie());
+        Assassin s1 = new Assassin("Fred", 80, 50, 40, Rarete.LEGENDAIRE);
+        assertEquals(50, s1.getPointsVie());
     }
 
     @Test
     public void changementPV(){
-        Yordle s1 = new Yordle("Fred", 80, 10, 10, Rarete.LEGENDAIRE);
+        Assassin s1 = new Assassin("Fred", 80, 10, 40, Rarete.LEGENDAIRE);
         s1.setPointsVie(60);
         assertEquals(60, s1.getPointsVie());
     }
 
     //TODO:Tester l'attaque
+    @Test
+    public void attaquer(){
+        FonctionAleatoire.random.setSeed(0);
+        Assassin s1 = new Assassin("Fred", 80, 60, 40, Rarete.LEGENDAIRE);
+        Assassin s2 = new Assassin("Fred", 80, 60, 40, Rarete.LEGENDAIRE);
+        s1.attaquer(s2);
+        assertEquals(0, s2.getPointsVie());
+    }
 }

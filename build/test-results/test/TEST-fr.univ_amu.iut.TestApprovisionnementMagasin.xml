@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="fr.univ_amu.iut.TestApprovisionnementMagasin" tests="4" skipped="0" failures="0" errors="0" timestamp="2022-12-15T18:09:35" hostname="luca-pc" time="0.018">
+  <properties/>
+  <testcase name="testGetListeCommun()" classname="fr.univ_amu.iut.TestApprovisionnementMagasin" time="0.015"/>
+  <testcase name="testGetListeLegendaire()" classname="fr.univ_amu.iut.TestApprovisionnementMagasin" time="0.001"/>
+  <testcase name="testGetListeRare()" classname="fr.univ_amu.iut.TestApprovisionnementMagasin" time="0.0"/>
+  <testcase name="testAjouterALaListeDesChampionsExistants()" classname="fr.univ_amu.iut.TestApprovisionnementMagasin" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
