@@ -1,5 +1,6 @@
 package fr.univ_amu.iut.backend.entites;
 
+import fr.univ_amu.iut.backend.entites.exceptions.ValeursPersonnagesInvalides;
 import fr.univ_amu.iut.backend.outils.observateur.Observable;
 import fr.univ_amu.iut.backend.outils.observateur.Observer;
 import fr.univ_amu.iut.backend.outils.FonctionAleatoire;
@@ -9,6 +10,8 @@ import java.util.ArrayList;
 
 public abstract class Entite implements Serializable {
 
+    private final static int POINTS_DE_DEFENSE_MIN = 0;
+    private final static int POINTS_DE_DEFENSE_MAX = 100;
     private Rarete rarete;
     private String nom;
     private int pointsAttaque ;
@@ -56,11 +59,14 @@ public abstract class Entite implements Serializable {
     }
 
     public void setPointsDefense(int pointsDefense) {
-        if (pointsDefense >= 0 && pointsDefense <= 100) {
-            this.pointsDefense = pointsDefense;
-        } else {
-            throw new IllegalArgumentException("Points de défense non valides (1-100)");
+        if (pointsDefense < POINTS_DE_DEFENSE_MIN || pointsDefense > POINTS_DE_DEFENSE_MAX) {
+            throw ValeursPersonnagesInvalides.pointsDefenseNonValides(
+                    POINTS_DE_DEFENSE_MIN,
+                    POINTS_DE_DEFENSE_MAX,
+                    pointsDefense);
         }
+        this.pointsDefense = pointsDefense;
+
     }
 
     public int getPointsVie() {
