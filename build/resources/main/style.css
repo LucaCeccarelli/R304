@@ -61,7 +61,7 @@
 }
 
 #listeChampions{
-    -fx-padding: 130 0 0 0;
+    -fx-padding: 0 0 130 0;
     -fx-alignment: center;
     -fx-spacing: 25;
 }
@@ -75,7 +75,7 @@
 
 #conteneurChampions{
     -fx-alignment: center;
-    -fx-padding: 0 0 170 0;
+    -fx-padding: 0 0 155 0;
     -fx-spacing: 10;
 }
 
@@ -115,4 +115,15 @@
     -fx-padding: 60 0 0 0;
     -fx-alignment: center;
     -fx-font-size: 20;
+}
+
+#entitesRestantesConteneur{
+    -fx-padding: 230 0 0 0;
+    -fx-alignment: center;
+}
+
+#entitesRestantes{
+    -fx-alignment: center;
+    -fx-font-size: 20;
+    -fx-text-fill: black;
 }

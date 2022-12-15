@@ -18,12 +18,18 @@ import java.util.ArrayList;
 
 public class FenetreMagasin extends BorderPane {
     private HBox conteneurDesBoutonsChampion = new HBox();
+
+    private Label nombreEntitesRestantesAchat = new Label("Nombre d'entitées restantes à acheter : 5");
+
+    private HBox entitesRestantesConteneur = new HBox();
+
+    private int nbEntitesRestantes = 5;
     private Magasin magasin;
     private ArrayList<BoutonChampion> boutonsChampions = new ArrayList<>(5);
     private Joueur joueur;
     public FenetreMagasin(){
         super();
-        super.setId("arrierePlanMagasin");
+        initElements();
         joueur = new Joueur("Moi");
 
         InitListeChampionsExistants.InitListe();
@@ -32,6 +38,7 @@ public class FenetreMagasin extends BorderPane {
         initBoutonsChampions();
         chargerBoutonsAchatChampions();
         super.setCenter(conteneurDesBoutonsChampion);
+        super.setTop(entitesRestantesConteneur);
     }
 
     private void chargerBoutonsAchatChampions(){
@@ -51,6 +58,7 @@ public class FenetreMagasin extends BorderPane {
 
                     try {
                         joueur.ajouterAuPaquet(magasin.achat(((BoutonChampion)e.getSource()).getEntite().getNom()));
+                        diminuerNbAchats();
                     } catch (NomEntiteNonPresentDansMagasinException ex) {
                         throw new RuntimeException(ex);
                     }
@@ -70,5 +78,17 @@ public class FenetreMagasin extends BorderPane {
                 FenetreMagasin.super.getScene().setRoot(new CombatServeur(joueur));
             }
         }
+    }
+
+    public void diminuerNbAchats(){
+        this.nbEntitesRestantes -= 1;
+        nombreEntitesRestantesAchat.setText("Nombre d'entitées restantes à acheter : " + nbEntitesRestantes);
+    }
+
+    public void initElements(){
+        super.setId("arrierePlanMagasin");
+        nombreEntitesRestantesAchat.setId("entitesRestantes");
+        entitesRestantesConteneur.setId("entitesRestantesConteneur");
+        entitesRestantesConteneur.getChildren().add(nombreEntitesRestantesAchat);
     }
 }
