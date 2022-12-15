@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="fr.univ_amu.iut.TestJoueur" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-12-15T18:09:35" hostname="luca-pc" time="0.0">
+<testsuite name="fr.univ_amu.iut.TestJoueur" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-12-15T18:57:32" hostname="luca-pc" time="0.014">
   <properties/>
+  <testcase name="testToString()" classname="fr.univ_amu.iut.TestJoueur" time="0.013"/>
   <testcase name="testAjouterAuPaquet()" classname="fr.univ_amu.iut.TestJoueur" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

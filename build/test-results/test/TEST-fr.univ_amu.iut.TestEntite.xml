@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="fr.univ_amu.iut.TestEntite" tests="9" skipped="0" failures="0" errors="0" timestamp="2022-12-15T18:09:35" hostname="luca-pc" time="0.008">
+<testsuite name="fr.univ_amu.iut.TestEntite" tests="9" skipped="0" failures="0" errors="0" timestamp="2022-12-15T18:57:32" hostname="luca-pc" time="0.007">
   <properties/>
   <testcase name="changementPointsDefense()" classname="fr.univ_amu.iut.TestEntite" time="0.0"/>
-  <testcase name="testRecuperationRarete()" classname="fr.univ_amu.iut.TestEntite" time="0.001"/>
-  <testcase name="recuperationPointsDefense()" classname="fr.univ_amu.iut.TestEntite" time="0.001"/>
-  <testcase name="attaquer()" classname="fr.univ_amu.iut.TestEntite" time="0.001"/>
+  <testcase name="testRecuperationRarete()" classname="fr.univ_amu.iut.TestEntite" time="0.0"/>
+  <testcase name="recuperationPointsDefense()" classname="fr.univ_amu.iut.TestEntite" time="0.0"/>
+  <testcase name="attaquer()" classname="fr.univ_amu.iut.TestEntite" time="0.0"/>
   <testcase name="changementPV()" classname="fr.univ_amu.iut.TestEntite" time="0.0"/>
   <testcase name="recuperationPV()" classname="fr.univ_amu.iut.TestEntite" time="0.001"/>
   <testcase name="changementPointsAttaque()" classname="fr.univ_amu.iut.TestEntite" time="0.0"/>
   <testcase name="testRecuperationNom()" classname="fr.univ_amu.iut.TestEntite" time="0.0"/>
-  <testcase name="recuperationPointsAttaque()" classname="fr.univ_amu.iut.TestEntite" time="0.001"/>
+  <testcase name="recuperationPointsAttaque()" classname="fr.univ_amu.iut.TestEntite" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -8,14 +8,33 @@ import fr.univ_amu.iut.backend.joueur.Joueur;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import fr.univ_amu.iut.backend.entites.Entite;
 public class TestJoueur {
-    @Test
-    void testAjouterAuPaquet() {
-        Joueur joueur = new Joueur("Michel");
-        Yordle s1 = new Yordle("Fred", 80, 10, 10, Rarete.LEGENDAIRE);
-        joueur.ajouterAuPaquet(s1);
-        assertEquals("Fred", joueur.getPaquet().get(0).getNom());
-    }
+
+        private Joueur joueur;
+        private Assassin entite;
+
+        @BeforeEach
+        void setUp() {
+            joueur = new Joueur("Test");
+            entite = new Assassin("Fred", 80, 60, 40, Rarete.LEGENDAIRE);
+        }
+
+        @Test
+        void testAjouterAuPaquet() {
+            joueur.ajouterAuPaquet(entite);
+            assertTrue(joueur.getPaquet().contains(entite));
+        }
+
+        @Test
+        void testToString() {
+            joueur.ajouterAuPaquet(entite);
+            assertEquals("Joueur{paquet=Paquet : Assassin{rarete=LEGENDAIRE, nom=Fred, pointsAttaque=80, pointsDefense=40, pointsVie=60}, nom='Test'}", joueur.toString());
+        }
 
 }
