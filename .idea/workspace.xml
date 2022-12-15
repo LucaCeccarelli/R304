@@ -15,6 +15,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/univ_amu/iut/backend/magasin/InitListeChampionsExistants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/univ_amu/iut/backend/magasin/InitListeChampionsExistants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/univ_amu/iut/interface_application/fenetres/magasin/BoutonChampion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/univ_amu/iut/interface_application/fenetres/magasin/BoutonChampion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/univ_amu/iut/interface_application/fenetres/magasin/FenetreMagasin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/univ_amu/iut/interface_application/fenetres/magasin/FenetreMagasin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/style.css" afterDir="false" />
@@ -51,7 +52,23 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="R3.04_Projet" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="application" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="R3.04_Projet" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="R3.04_Projet" type="f1a62948:ProjectNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="R3.04_Projet" type="f1a62948:ProjectNode" />
+                <item name="Run Configurations" type="7b0102dc:RunConfigurationsNode" />
               </path>
             </expand>
             <select />
@@ -107,7 +124,20 @@
       <recent name="$PROJECT_DIR$/src/main/java/fr/univ_amu/iut" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.fr.univ_amu.iut.LaunchApp">
+  <component name="RunManager" selected="Application.LancerApp">
+    <configuration name="LancerApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="fr.univ_amu.iut.LancerApp" />
+      <module name="R3.04_Projet.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="fr.univ_amu.iut.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="LaunchApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="fr.univ_amu.iut.interface_application.LaunchApp" />
       <module name="R3.04_Projet.main" />
@@ -157,29 +187,6 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="TestApp.testEruditToString" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;fr.univ_amu.fr.TestApp.testEruditToString&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
     <configuration name="TestApp.testMageToString" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -205,11 +212,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.LancerApp" />
         <item itemvalue="Application.fr.univ_amu.iut.LaunchApp" />
         <item itemvalue="Application.LaunchApp" />
         <item itemvalue="Gradle.TestApp" />
         <item itemvalue="Gradle.TestApp.testMageToString" />
-        <item itemvalue="Gradle.TestApp.testEruditToString" />
       </list>
     </recent_temporary>
   </component>
