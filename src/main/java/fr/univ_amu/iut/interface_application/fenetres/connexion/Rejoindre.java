@@ -12,12 +12,22 @@ import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 
+
+/**
+ * Classe representant le panneau de connexion d'un client a un serveur
+ *
+ * @author Nom Prénom
+ */
 public class Rejoindre extends BorderPane {
     private TextField entreeDeTexte = new TextField();
     private Button rejoindre = new Button("Rejoindre");
 
     private VBox conteneurBoutonZoneTexte = new VBox();
     private static Client client;
+
+    /**
+     * Constructeur par défaut
+     */
     public Rejoindre(){
         super();
         super.setId("arrierePlan_rejoindre");
@@ -26,6 +36,9 @@ public class Rejoindre extends BorderPane {
         super.setCenter(conteneurBoutonZoneTexte);
     }
 
+    /**
+     * Initialise les boutons de connexion
+     */
     private void initialisationBoutons(){
         rejoindre.getStyleClass().add("bouton_management");
         rejoindre.setOnAction(new EventHandler<ActionEvent>() {
@@ -44,6 +57,9 @@ public class Rejoindre extends BorderPane {
         });
     }
 
+    /**
+     * Initialise les elements du panneau
+     */
     public void initialisationsElements(){
         entreeDeTexte.setPromptText("IP de l'hébergeur");
         entreeDeTexte.setId("entreeIpRejoindre");
@@ -52,6 +68,11 @@ public class Rejoindre extends BorderPane {
         rejoindre.setDefaultButton(true);
     }
 
+    /**
+     * Getter de la variable client
+     *
+     * @return le client
+     */
     public static Client getClient() {
         return client;
     }

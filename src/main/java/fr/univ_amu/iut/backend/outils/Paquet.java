@@ -5,14 +5,32 @@ import fr.univ_amu.iut.backend.entites.Entite;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+/**
+ * Classe Paquet qui hérite de la classe ArrayList pour manipuler des entités.
+ */
 public class Paquet extends ArrayList<Entite> {
+
+    /**
+     * Constructeur par défaut.
+     */
     public Paquet(){
         super();
     }
 
+    /**
+     * Constructeur qui prend en paramètre la capacité initiale.
+     *
+     * @param capaciteIntiale La capacité initiale du paquet
+     */
     public Paquet(int capaciteIntiale){
         super(capaciteIntiale);
     }
+
+    /**
+     * Trie les entités du paquet par leur points de vie.
+     *
+     * @throws IllegalStateException Si le tri est impossible
+     */
     public void trierParPv() throws IllegalStateException{
         Entite temp;
         for (int i = this.size()-1 ; i>=1 ; i--) {
@@ -26,6 +44,11 @@ public class Paquet extends ArrayList<Entite> {
         }
     }
 
+    /**
+     * Retourne une chaîne de caractères représentant le contenu du paquet.
+     *
+     * @return Une chaîne représentant le contenu du paquet.
+     */
     @Override
     public String toString() {
         trierParPv();
