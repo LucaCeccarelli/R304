@@ -18,7 +18,7 @@ import java.util.Enumeration;
  */
 public class Heberger extends BorderPane {
     private Button heberger = new Button("Cliquez ici pour heberger la partie");
-    private Label texteDeAttente = new Label("En attente que un autre joueur vous rejoigne ...");
+    private Label texteDeAttente = new Label("En attente qu'un autre joueur vous rejoigne ...");
 
     private Label IPLocale = new Label();
     private VBox texteAttenteIPLocale = new VBox();

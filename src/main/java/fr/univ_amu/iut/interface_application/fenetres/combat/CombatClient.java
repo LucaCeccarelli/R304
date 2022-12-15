@@ -5,6 +5,7 @@ import fr.univ_amu.iut.backend.joueur.Joueur;
 import fr.univ_amu.iut.backend.outils.multijoueur.client.Client;
 import fr.univ_amu.iut.interface_application.fenetres.connexion.Rejoindre;
 import fr.univ_amu.iut.interface_application.fenetres.fenetre_fin.FinPartie;
+import javafx.scene.control.Label;
 
 /**
  * Classe représentant le combat client
@@ -15,6 +16,7 @@ public class CombatClient extends Combat {
      * Variable de type Client
      */
     private Client client;
+
 
     /**
      * Constructeur
@@ -42,7 +44,6 @@ public class CombatClient extends Combat {
             if(!client.estEntitesRecuesVide()){break;}
         }
         Entite entiteAdversaire = client.getBufferRecu();
-
         entiteAdversaire.attaquer(super.getBoutonChampionChoisiAuCombat().getEntite());
         super.verifieSiChampionVivant();
 

@@ -185,7 +185,7 @@ public abstract class Entite implements Serializable {
      */
     public void attaquer(Entite adversaire) {
         int attaque;
-        attaque = (int) (this.pointsAttaque*(1.01-(adversaire.getPointsDefense()/100)));
+        attaque = (int) (this.pointsAttaque*(1.01-(adversaire.getPointsDefense()/150)));
         attaque = (int) (attaque*FonctionAleatoire.random.nextDouble(0.5, 1));
         if (adversaire.getPointsVie() <= attaque){
             adversaire.setPointsVie(0);
